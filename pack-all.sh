@@ -15,10 +15,17 @@ fi
 rm -rf -f $packdir &&
 mkdir -p $packdir &&
 
+echo "Building components..."
+
+{
+  (cd ./components && npm run build || npm i && npm run build)
+} &> /dev/null &&
+
 cd ./blocks &&
 
 for f in *; do
     if [ -d "$f" ]; then
+        echo ""
         echo "---"
         echo "Packing '$f'"
 
@@ -59,6 +66,7 @@ for f in *; do
 done &&
 
 (
+  echo "" &&
   echo "---" &&
   echo "Packing dependencies" &&
 
@@ -95,6 +103,7 @@ done &&
   echo "Packed file: $composedname.zip"
 )
 
+echo "";
 echo "---";
 echo "";
 echo "Done. Packed files can be found at $packdir folder.";

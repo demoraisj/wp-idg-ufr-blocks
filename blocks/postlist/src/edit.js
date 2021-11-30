@@ -1,5 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { UFRBlockHeader, UFRSelect, UFRCheckbox, UFRInput } from 'wp-idg-ufr__block-components';
+import { UFRBlockHeader, UFRSelect, UFRCheckbox, UFRInput }from '../../../components/dist/index.modern';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { Fragment } from 'react';

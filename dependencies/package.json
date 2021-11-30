@@ -1,0 +1,23 @@
+{
+  "name": "wp-idg-ufr-blocks-dependencies",
+  "version": "1.0.0",
+  "description": "Dependências dos componentes do tema WP da Universidade Federal de Rondonópolis.",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "sass": "^1.43.2"
+  },
+  "scripts": {
+    "watch": "./node_modules/sass/sass.js --watch ./assets/css/ufr-blocks-editor.scss ./assets/css/ufr-blocks-editor.css & babel src --watch -d lib",
+    "build": "./node_modules/sass/sass.js ./assets/css/ufr-blocks-editor.scss ./assets/css/ufr-blocks-editor.css & babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-minify": "^0.5.1",
+    "regenerator-runtime": "^0.13.9"
+  }
+}

@@ -5,7 +5,7 @@ import {
 	UFRSelect,
 	UFRIconPicker,
 	UFRCheckbox,
-} from 'wp-idg-ufr__block-components';
+} from '../../../components/dist/index.modern';
 import './editor.scss';
 import { Fragment } from 'react';
 

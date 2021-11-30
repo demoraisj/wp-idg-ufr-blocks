@@ -1,5 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { UFRInput, UFRSelect, UFRGaleryBtn, UFRBlockHeader, UFRIconPicker } from "wp-idg-ufr__block-components";
+import { UFRInput, UFRSelect, UFRGaleryBtn, UFRBlockHeader, UFRIconPicker } from "../../../components/dist/index.modern";
 import { Fragment } from 'react';
 import { LightenDarkenColor } from 'lighten-darken-color';
 

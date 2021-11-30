@@ -1,0 +1,8 @@
+# packages manager
+node_modules
+
+# IDE
+.vscode
+.idea
+
+wp-idg-ufr__block-dependencies.zip

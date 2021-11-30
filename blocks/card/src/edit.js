@@ -1,5 +1,5 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-import { UFRBlockHeader } from 'wp-idg-ufr__block-components';
+import { UFRBlockHeader } from '../../../components/dist/index.modern';
 import './editor.scss';
 
 /**

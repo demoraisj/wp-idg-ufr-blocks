@@ -3,7 +3,7 @@ import {
 	UFRBlockHeader,
 	UFRListBuilder,
 	UFRCheckbox,
-} from 'wp-idg-ufr__block-components';
+} from '../../../components/dist/index.modern';
 import { Fragment } from 'react';
 import Render from './render';
 import './editor.scss';

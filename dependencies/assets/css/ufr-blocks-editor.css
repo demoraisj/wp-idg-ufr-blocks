@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/**
+ * Os estilos seguintes se aplicam apenas na edição dos blocos.
+ */
+.ufr-block-component.show {
+  padding: 30px;
+  cursor: pointer;
+}
+.ufr-block-component.show:hover {
+  outline: 2px solid #007cba;
+}
+.ufr-block-component.show.very-small {
+  padding: 10px !important;
+}
+
+.ufr-block-component.edit {
+  padding: 30px;
+  border: 1px solid #000;
+}
+.ufr-block-component.edit select {
+  width: 100%;
+  height: 30px;
+  margin: 2px 0 0 0;
+}
+.ufr-block-component.edit textarea {
+  width: 100%;
+  margin: 2px 0 0 0;
+}
+.ufr-block-component.edit input[type=text],
+.ufr-block-component.edit input[type=number],
+.ufr-block-component.edit input[type=email],
+.ufr-block-component.edit input[type=password] {
+  width: 100%;
+  height: 30px;
+  margin: 2px 0 0 0;
+}
+.ufr-block-component.edit .rfip {
+  margin: 2px 0 0 0;
+}
+.ufr-block-component.edit .big-btn {
+  color: #fff;
+  background: #006ba1;
+  width: 100%;
+  height: 60px;
+  margin: 20px 0 10px 0;
+  border: none;
+  border-radius: 5px;
+  transition: all ease-in-out 100ms;
+}
+.ufr-block-component.edit .big-btn:hover {
+  background: #008dd4;
+}
+.ufr-block-component.edit .listBuilder {
+  border: #6c757d solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.ufr-block-component.edit .listBuilder .items {
+  padding: 10px 0;
+}
+.ufr-block-component.edit .listBuilder .items .has-children {
+  background: #e8e8e8;
+  border-radius: 2.5px;
+}
+.ufr-block-component.edit .listBuilder .items .has-children .children-group {
+  font-size: 75%;
+}
+.ufr-block-component.edit .listBuilder .items .item {
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 2.5px;
+  transition: all ease-in-out 100ms;
+}
+.ufr-block-component.edit .listBuilder .items .item:hover {
+  background: #87d7ff;
+  cursor: pointer;
+}
+.ufr-block-component.edit .listBuilder .items .item i {
+  transition: all ease-in-out 100ms;
+}
+.ufr-block-component.edit .listBuilder .items .item i.nest:hover {
+  color: #4BB543;
+  cursor: pointer;
+}
+.ufr-block-component.edit .listBuilder .items .item i.delete:hover {
+  color: rgba(221, 0, 26, 0.85);
+  cursor: pointer;
+}
+.ufr-block-component.edit .listBuilder .insert {
+  border: #6c757d solid 1px;
+  border-radius: 3.5px;
+  padding: 5px;
+}
+.ufr-block-component.edit .listBuilder .insert .col {
+  margin-right: -25px !important;
+}
+.ufr-block-component.edit .listBuilder .insert button {
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  background: #007cba;
+  border: none;
+  border-radius: 3.5px;
+  color: #fff;
+  transition: all ease-in-out 100ms;
+}
+.ufr-block-component.edit .listBuilder .insert button:hover {
+  background: #009eed;
+}
+.ufr-block-component.edit .listBuilder .insert input {
+  margin: 0 !important;
+}
+.ufr-block-component.edit .listBuilder .insert fieldset {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.ufr-block-component.edit .listBuilder .insert span {
+  font-weight: bold;
+}
+.ufr-block-component.edit .preview {
+  padding: 0 50px;
+}
+.ufr-block-component.edit.small {
+  padding: 15px;
+}
+.ufr-block-component.edit.small .preview,
+.ufr-block-component.edit.small .header .description {
+  display: none;
+}
+.ufr-block-component.edit.small .header .title {
+  font-size: 150%;
+}
+.ufr-block-component.edit.small .header .svg {
+  width: 60px;
+  height: 30px;
+}
+.ufr-block-component.edit.small .big-btn {
+  font-size: 60%;
+}
+.ufr-block-component.edit.small label {
+  font-size: 80%;
+}
+
+/*# sourceMappingURL=ufr-blocks-editor.css.map */
