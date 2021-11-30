@@ -1,0 +1,43 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-ufr-slider {
+	.splide__list {
+		height: inherit !important;
+	}
+
+	.splide-main {
+        .splide__slide {
+			position: relative;
+
+			.description {
+				position: absolute;
+				bottom: 0;
+				padding: 10px;
+				width: 100%;
+				color: #fff;
+				background: transparentize(#000, 0.4);
+
+				.title {
+					font-size: large;
+					font-weight: bold;
+				}
+			}
+		}
+    }
+
+	.splide-thumbnail {
+		margin-top: 15px;
+	}
+
+	.not-found {
+		padding: 20px;
+		text-align: center;
+		font-size: large;
+		font-weight: bold;
+		color: red;
+	}
+}

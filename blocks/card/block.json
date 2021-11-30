@@ -1,0 +1,19 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-card",
+	"version": "0.1.0",
+	"title": "UFR - Cartão",
+	"category": "widgets",
+	"icon": "id-alt",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-card",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-avatar",
+	"version": "0.1.0",
+	"title": "UFR - Avatar",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "Blocos WP-IDG-UFR - Avatar",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"type": {
+		  	"enum": ["icon", "img", "letter"],
+		  	"default": "icon"
+		},
+	  	"text": {
+		  	"type": "string"
+		},
+	  	"size": {
+		  	"enum": ["", "medium", "large"],
+		  	"default": "large"
+		},
+	  	"img": {
+		  	"type": "string"
+		},
+	  	"icon": {
+		  	"type": "string"
+		},
+	  	"letter": {
+		  	"type": "string",
+		  	"default": "A"
+		},
+	  	"color": {
+		  	"type": "string",
+		  	"default": "#c5d4eb"
+		}
+	}
+}

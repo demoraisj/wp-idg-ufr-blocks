@@ -1,0 +1,64 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-postlist",
+	"version": "0.1.0",
+	"title": "UFR - Lista de Postagens",
+	"category": "widgets",
+	"icon": "excerpt-view",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-postlist",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"postType": {
+            "type": "string",
+			"enum": ["most-recent", "most-seen", "category", "tag"],
+            "default": "most-recent"
+        },
+		"postCategory" : {
+            "type": "string"
+        },
+		"postTag" : {
+			"type": "string"
+		},
+		"postsQuantity": {
+            "type": "number",
+            "default": 4
+        },
+		"listID": {
+            "type": "string"
+        },
+		"useContainer": {
+            "type": "boolean",
+            "default": false
+        },
+		"useBorder": {
+            "type": "boolean",
+            "default": false
+        },
+		"useCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"containerColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+		"showThumbnail": {
+            "type": "boolean",
+            "default": true
+        },
+		"showExcerpt": {
+            "type": "boolean",
+            "default": true
+        },
+		"margin": {
+            "type": "string",
+            "default": "20px"
+        }
+	}
+}

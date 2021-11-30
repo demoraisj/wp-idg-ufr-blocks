@@ -1,0 +1,56 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-list",
+	"version": "0.1.0",
+	"title": "UFR - Lista",
+	"category": "widgets",
+	"icon": "editor-ol",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-list",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"orientation": {
+			"type": "string",
+			"enum": ["", "horizontal"],
+			"default": ""
+		},
+		"size": {
+			"type": "string",
+			"enum": ["", "py-3", "py-4"],
+			"default": ""
+		},
+		"targetBlank": {
+			"type": "boolean",
+			"default": true
+		},
+		"items": {
+			"type": "string",
+			"default": "[]"
+		},
+		"icon": {
+			"type": "string",
+			"enum": [
+				"",
+				"fas fa-circle",
+				"far fa-circle",
+				"fas fa-arrow-right",
+				"fas fa-arrow-circle-right",
+				"fas fa-long-arrow-alt-right",
+				"fas fa-chevron-right",
+				"fas fa-square",
+				"far fa-square"
+			],
+			"default": "center"
+		}
+	}
+}

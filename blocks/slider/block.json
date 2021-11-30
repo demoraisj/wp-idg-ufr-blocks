@@ -1,0 +1,82 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-slider",
+	"version": "0.1.0",
+	"title": "UFR - Slider de Imagens e Postagens",
+	"category": "widgets",
+	"icon": "slides",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-slider",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"slides": {
+			"type": "array",
+            "default": []
+		},
+		"usePosts": {
+            "type": "boolean",
+            "default": false
+        },
+		"postType": {
+            "type": "string",
+			"enum": ["most-recent", "most-seen", "category", "tag"],
+            "default": "most-recent"
+        },
+		"postCategory" : {
+            "type": "string",
+            "default": ""
+        },
+		"postTag" : {
+			"type": "string",
+			"default": ""
+		},
+		"duration": {
+            "type": "number",
+            "default": 5
+        },
+		"images": {
+			"type": "array",
+			"default": []
+		},
+		"postsQuantity": {
+            "type": "number",
+            "default": 10
+        },
+		"sliderID": {
+            "type": "string"
+        },
+		"useCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"useContainer": {
+            "type": "boolean",
+            "default": false
+        },
+		"containerColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+		"showTitle": {
+            "type": "boolean",
+            "default": true
+        },
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"height": {
+            "type": "string",
+            "default": "400px"
+        },
+		"autoplay": {
+            "type": "boolean",
+            "default": true
+        }
+	}
+}

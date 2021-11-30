@@ -1,0 +1,54 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-button",
+	"version": "0.1.0",
+	"title": "UFR - Botão",
+	"category": "widgets",
+	"icon": "button",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-button",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+	  	"type": {
+			"type": "string",
+			"enum": ["", "circle", "block"],
+			"default": ""
+		},
+		"style": {
+			"type": "string",
+			"enum": ["", "primary", "secondary"],
+			"default": "primary"
+		},
+		"size": {
+			"type": "string",
+			"enum": ["", "small", "large"],
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": "Texto do Botão"
+		},
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"link": {
+			"type": "string",
+			"default": ""
+		},
+		"blank": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-postbox",
+	"version": "0.1.0",
+	"title": "UFR - Caixa de Postagem",
+	"category": "widgets",
+	"icon": "pressthis",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-postbox",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"postType": {
+            "type": "string",
+			"enum": ["all", "most-seen", "category", "tag"],
+            "default": "all"
+        },
+		"postCategory" : {
+            "type": "string"
+        },
+		"postTag" : {
+			"type": "string"
+		},
+		"boxID": {
+            "type": "string"
+        },
+		"showExcerpt": {
+            "type": "boolean",
+            "default": true
+        },
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showShareBtn": {
+            "type": "boolean",
+            "default": true
+        },
+		"post": {
+            "type": "string"
+        },
+		"postSelection": {
+			"type": "string",
+			"enum": ["first", "last", "pick"],
+			"default": "first"
+		}
+	}
+}

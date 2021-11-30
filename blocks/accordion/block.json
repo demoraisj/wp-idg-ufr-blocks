@@ -1,0 +1,31 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-accordion",
+	"version": "0.1.0",
+	"title": "UFR - Acordeão",
+	"category": "widgets",
+	"icon": "arrow-down",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-accordion",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"items": {
+			"type": "string",
+			"default": "[]"
+		},
+		"single": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

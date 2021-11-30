@@ -1,0 +1,52 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+$primary: #0C326F;
+$primary-lighter: #2670E8;
+
+.wp-block-create-block-ufr-simple-card {
+	.item {
+		width: 200px;
+		height: 200px;
+		border-radius: 2px;
+		box-shadow: 0 3px 6px -1px #B1B4B5;
+		box-sizing: border-box;
+		transition: all 300ms ease-in-out;
+		overflow: hidden;
+		overflow-wrap: anywhere;
+		padding: 5px;
+		text-decoration: none;
+
+		.content {
+			i {
+				color: $primary-lighter;
+			}
+
+			h2 {
+				color: $primary;
+			}
+
+			.description {
+				display: none;
+				white-space: pre-wrap;
+				font-size: large;
+			}
+		}
+
+		&.hover:hover {
+			background: #555555;
+			color: #fff;
+
+			.front {
+				display: none;
+			}
+
+			.description {
+				display: inherit;
+			}
+		}
+	}
+}
