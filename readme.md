@@ -14,5 +14,8 @@ Um projeto que repune as dependências de todos os plugins de blocos. Rquerido a
 ### /components
 Projeto que abstrai os componentes de formulário dos blocos. Todos os blocos usam pelo menos um desses componentes, que são importados diretamente por eles em es6 sintax e não são instalados como plugins.
 
+### /block-example
+Template para criação de um novo bloco, com a base comum para todos os blocos.
+
 ## Preparo para produção
 Empacote todos os plugins necessários com o script "pack-all.sh".
