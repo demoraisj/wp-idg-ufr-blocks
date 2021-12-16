@@ -35,8 +35,10 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		postsQuantity,
 		height,
 		autoplay,
+		wpPostType,
 	} = attributes;
 
+	const [wpPostTypeOptions, setWpPostTypeOptions] = useState([]);
 	const [categoryOptions, setCategoryOptions] = useState([]);
 	const [tagOptions, setTagOptions] = useState([]);
 
@@ -52,6 +54,11 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 	useEffect(() => {
 		const optionsToGet = [
 			{
+				attr: 'wpPostType',
+				path: '/wp/v2/types',
+				set: setWpPostTypeOptions,
+			},
+			{
 				attr: 'postCategory',
 				path: '/wp/v2/categories',
 				set: setCategoryOptions,
@@ -65,9 +72,15 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 
 		optionsToGet.forEach(({ path, set, attr }) => {
 			apiFetch({ path }).then((res) => {
+				if (!Array.isArray(res)) {
+					const exclude = ['attachment', 'page', 'wp_block', 'wp_template'];
+
+					res = Object.values(res).filter((item) => !exclude.includes(item?.slug));
+				}
+
 				const options = res.map((item) => ({
 					label: item.name,
-					value: item.id,
+					value: item?.id ?? item?.slug,
 				}));
 
 				set(options);
@@ -96,6 +109,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				showTitle,
 				autoplay,
 				height,
+				wpPostType,
 			});
 		}
 	}, [isSelected])
@@ -132,6 +146,14 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							<Fragment>
 								<UFRSelect
 									label="Tipo de Postagens"
+									options={wpPostTypeOptions}
+									value={wpPostType}
+									attr="wpPostType"
+									setter={setAttributes}
+								/>
+
+								<UFRSelect
+									label="Selecionar Postagens Por"
 									options={postTypeOptions}
 									value={postType}
 									attr="postType"

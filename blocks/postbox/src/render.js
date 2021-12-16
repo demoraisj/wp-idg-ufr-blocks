@@ -18,6 +18,7 @@ export default function Render({ preview, attributes }) {
 		showShareBtn,
 		post,
 		boxID,
+		wpPostType,
 	} = attributes;
 
 	return (
@@ -60,6 +61,7 @@ export default function Render({ preview, attributes }) {
 							showShareBtn: ${showShareBtn},
 							postSelection: '${postSelection}',
 							post: ${post},
+							wpPostType: '${wpPostType}',
 						})
 					});
 				`}

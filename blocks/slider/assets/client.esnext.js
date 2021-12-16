@@ -1,15 +1,15 @@
 function ufrSetUpSliders(params) {
 	const { autoplay, height, sliderID } = params;
 
-	async function getPosts(postType, postCategory, postTag, postsQuantity) {
-		const postsUrl = ufrGlobals.siteUrl + `/wp-json/wp/v2/posts?_embed=&_locale=user&per_page=${postsQuantity}`
+	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
+		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`;
 
 		switch (postType) {
 			case 'most-recent':
 				return (await fetch(postsUrl)).json();
 
 			case 'most-seen':
-				return (await fetch(ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=${postsQuantity}`)).json();
+				return (await fetch(window.ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=${postsQuantity}&type=${wpPostType}`)).json();
 
 			case 'category':
 				return (await fetch(postsUrl + `&categories=${postCategory}`)).json();
@@ -29,7 +29,8 @@ function ufrSetUpSliders(params) {
 			duration,
 			postTag,
 			showExcerpt,
-			showTitle
+			showTitle,
+			wpPostType,
 		} = params;
 
 		const ufrLoadPosts = new Event('ufrLoadPosts');
@@ -44,7 +45,7 @@ function ufrSetUpSliders(params) {
 
 		// Loader
 
-		const posts = await getPosts(postType, postCategory, postTag, postsQuantity);
+		const posts = await getPosts(postType, postCategory, postTag, postsQuantity, wpPostType);
 
 		if (!posts || posts.length === 0) {
 			mainList.innerHTML = `
@@ -57,7 +58,7 @@ function ufrSetUpSliders(params) {
 		}
 
 		posts.forEach(({ link, title, _embedded, thumbnail, excerpt }) => {
-			let img = ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
+			let img = window.ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
 			let imgAlt = '';
 
 			const embeddedImgAltTxt = _embedded ? _embedded['wp:featuredmedia']?.[0]?.alt_text: undefined;
@@ -66,17 +67,17 @@ function ufrSetUpSliders(params) {
 			if (embeddedImg) img = embeddedImg;
 			if (embeddedImgAltTxt) imgAlt = embeddedImgAltTxt;
 			if (thumbnail) img = thumbnail;
-			if (!(postType === 'most-seen')) title = title.rendered;
-			if (!(postType === 'most-seen')) excerpt = excerpt.rendered;
+			if (!(postType === 'most-seen')) title = title?.rendered;
+			if (!(postType === 'most-seen')) excerpt = excerpt?.rendered;
 
 			const useLegends = showTitle || showExcerpt;
 			const legend = useLegends ? `
-					<div class="description">
-						<span class="title">${title}</span>
-						<br/>
-						${excerpt}
-					</div>
-				` : '';
+				<div class="description">
+					<span class="title">${title ?? ''}</span>
+					<br/>
+					${excerpt ?? ''}
+				</div>
+			` : '';
 
 			mainList.innerHTML += `
 				<li class="splide__slide"

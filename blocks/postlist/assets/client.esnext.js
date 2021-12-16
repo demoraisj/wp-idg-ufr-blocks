@@ -12,10 +12,11 @@ async function ufrSetUpPostLists(params) {
 		showExcerpt,
 		margin,
 		useCard,
+		wpPostType,
 	} = params;
 
-	async function getPosts(postType, postCategory, postTag, postsQuantity) {
-		const postsUrl = ufrGlobals.siteUrl + `/wp-json/wp/v2/posts?_embed=&_locale=user&per_page=${postsQuantity}`
+	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
+		const postsUrl = ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`
 
 		switch (postType) {
 			case 'most-recent':
@@ -55,7 +56,7 @@ async function ufrSetUpPostLists(params) {
 
 	const list = document.getElementById(listID);
 
-	const posts = await getPosts(postType, postCategory, postTag, postsQuantity);
+	const posts = await getPosts(postType, postCategory, postTag, postsQuantity, wpPostType);
 
 	if (!posts || posts.length === 0) {
 		list.innerHTML = '<div class="not-found">Nenhum post encontrado.</div>';
@@ -71,13 +72,13 @@ async function ufrSetUpPostLists(params) {
 		if (embeddedImg) img = embeddedImg;
 		if (thumbnail) img = thumbnail;
 		if (!(postType === 'most-seen')) {
-			title = title.rendered;
-			excerpt = excerpt.rendered;
+			title = title?.rendered;
+			excerpt = excerpt?.rendered;
 		}
 
-		const renderedExcerpt = showExcerpt ? `
+		const renderedExcerpt = showExcerpt && excerpt ? `
 			<div class="col-12 excerpt">
-				<span>${strip(excerpt)}</span>
+				<span>${excerpt}</span>
 			</div>` : '';
 
 		const renderedThumbnail = showThumbnail ? `
@@ -115,7 +116,7 @@ async function ufrSetUpPostLists(params) {
 							<div class="row">
 								<div class="col-12 title">
 									<span class="title" style="${(!showExcerpt && showThumbnail) && 'line-height: 80px;'}">
-										${title}
+										${title ?? ''}
 									</span>
 
 									<div class="btn_wrap">

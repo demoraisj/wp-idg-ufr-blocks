@@ -9,6 +9,7 @@ async function ufrSetPostBox(params) {
 		showTitle,
 		showShareBtn,
 		post,
+		wpPostType,
 	} = params;
 
 	/**
@@ -20,8 +21,8 @@ async function ufrSetPostBox(params) {
 	 * @param postSelection
 	 * @return {Promise<any>}
 	 */
-	async function getPosts(postType, postCategory, postTag, postSelection) {
-		const postsUrl = ufrGlobals.siteUrl + `/wp-json/wp/v2/posts?_embed=&_locale=user&per_page=1`
+	async function getPosts(postType, postCategory, postTag, postSelection, wpPostType) {
+		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=1`
 
 		switch (postType) {
 			case 'all':
@@ -37,10 +38,10 @@ async function ufrSetPostBox(params) {
 			case 'most-seen':
 				switch (postSelection) {
 					case 'first':
-						return (await fetch(ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=1`)).json();
+						return (await fetch(window.ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=1&type=${wpPostType}`)).json();
 
 					case 'last':
-						return (await fetch(ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=1&order=asc`)).json();
+						return (await fetch(window.ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=1&order=asc&type=${wpPostType}`)).json();
 				}
 				break;
 
@@ -74,7 +75,7 @@ async function ufrSetPostBox(params) {
 	const boxShareTt = box.querySelector('.fa-twitter');
 	const boxShareWpp = box.querySelector('.fa-whatsapp');
 
-	let targetPost = post ?? (await getPosts(postType, postCategory, postTag, postSelection))[0];
+	let targetPost = post ?? (await getPosts(postType, postCategory, postTag, postSelection, wpPostType))[0];
 
 	if (!targetPost) {
 		box.innerHTML = '<div class="not-found">Nenhum post encontrado.</div>';
@@ -86,7 +87,7 @@ async function ufrSetPostBox(params) {
 	let { excerpt, title } = targetPost;
 
 	// Placeholder
-	let img = ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
+	let img = window.ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
 
 	const embeddedImg = _embedded ? _embedded['wp:featuredmedia']?.[0]?.source_url : undefined;
 
@@ -97,8 +98,8 @@ async function ufrSetPostBox(params) {
 	if (embeddedImg) img = embeddedImg;
 	if (thumbnail) img = thumbnail;
 	if (!(postType === 'most-seen') && !post) {
-		title = title.rendered;
-		excerpt = excerpt.rendered;
+		title = title?.rendered;
+		excerpt = excerpt?.rendered;
 	}
 
 	function strip(string) {

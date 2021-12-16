@@ -59,6 +59,10 @@
 		"margin": {
             "type": "string",
             "default": "20px"
-        }
+        },
+		"wpPostType": {
+			"type": "string",
+			"default": "noticia"
+		}
 	}
 }

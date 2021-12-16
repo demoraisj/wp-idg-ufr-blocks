@@ -1,0 +1,23 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-$block-name$",
+	"version": "0.1.0",
+	"title": "UFR - $block-title-capitalized$",
+	"category": "widgets",
+	"icon": "$block-name$",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-$block-name$",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		}
+	}
+}

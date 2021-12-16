@@ -21,6 +21,7 @@ export default function Render({ preview, attributes }) {
 		showExcerpt,
 		useCard,
 		margin,
+		wpPostType,
 	} = attributes;
 
 	return (
@@ -44,6 +45,7 @@ export default function Render({ preview, attributes }) {
 							showExcerpt: ${showExcerpt},
 							margin: '${margin}',
 							useCard: ${useCard},
+							wpPostType: '${wpPostType}',
 						})
 					});
 				`}

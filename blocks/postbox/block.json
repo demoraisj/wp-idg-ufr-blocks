@@ -47,6 +47,10 @@
 			"type": "string",
 			"enum": ["first", "last", "pick"],
 			"default": "first"
+		},
+		"wpPostType": {
+			"type": "string",
+			"default": "noticia"
 		}
 	}
 }

@@ -77,6 +77,10 @@
 		"autoplay": {
             "type": "boolean",
             "default": true
-        }
+        },
+		"wpPostType": {
+			"type": "string",
+			"default": "noticia"
+		}
 	}
 }
