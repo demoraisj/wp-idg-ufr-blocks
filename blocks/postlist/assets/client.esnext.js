@@ -16,14 +16,14 @@ async function ufrSetUpPostLists(params) {
 	} = params;
 
 	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
-		const postsUrl = ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`
+		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`
 
 		switch (postType) {
 			case 'most-recent':
 				return (await fetch(postsUrl)).json();
 
 			case 'most-seen':
-				return (await fetch(ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=${postsQuantity}`)).json();
+				return (await fetch(window.ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=${postsQuantity}`)).json();
 
 			case 'category':
 				return (await fetch(postsUrl + `&categories=${postCategory}`)).json();
@@ -65,7 +65,7 @@ async function ufrSetUpPostLists(params) {
 	}
 
 	posts.forEach(({ link, title, _embedded, thumbnail, excerpt }) => {
-		let img = ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
+		let img = window.ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
 
 		const embeddedImg = _embedded ? _embedded['wp:featuredmedia']?.[0]?.source_url : undefined;
 
