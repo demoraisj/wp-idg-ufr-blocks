@@ -92,11 +92,13 @@ function ufrSetUpSliders(params) {
 				</li>
 			`;
 
-			thumbnailList.innerHTML += `
-				<li class="splide__slide">
-					<img src="${img}" alt="${imgAlt}" />
-				</li>
-			`;
+			if (!window.ufrGlobals.isMobile) {
+				thumbnailList.innerHTML += `
+					<li class="splide__slide">
+						<img src="${img}" alt="${imgAlt}" />
+					</li>
+				`;
+			}
 		})
 
 		window.dispatchEvent(ufrLoadPosts);
@@ -104,7 +106,6 @@ function ufrSetUpSliders(params) {
 
 	window.addEventListener('ufrLoadPosts', function() {
 		const main = document.getElementById(sliderID);
-		const thumb = document.getElementById(`${sliderID}-thumbnail`);
 
 		const splideMain = new Splide(main, {
 			type      : 'fade',
@@ -116,26 +117,32 @@ function ufrSetUpSliders(params) {
 			autoplay,
 		});
 
-		const splideThumbnails = new Splide(thumb, {
-			fixedWidth  : 100,
-			fixedHeight : 60,
-			gap         : 10,
-			rewind      : true,
-			pagination  : false,
-			cover       : true,
-			arrows      : false,
-			isNavigation: true,
-			breakpoints : {
-				600: {
-					fixedWidth : 60,
-					fixedHeight: 44,
-				},
-			},
-		});
+		if (!window.ufrGlobals.isMobile) {
+			const thumb = document.getElementById(`${sliderID}-thumbnail`);
 
-		splideMain.sync(splideThumbnails);
-		splideMain.mount();
-		splideThumbnails.mount();
+			const splideThumbnails = new Splide(thumb, {
+				fixedWidth  : 100,
+				fixedHeight : 60,
+				gap         : 10,
+				rewind      : true,
+				pagination  : false,
+				cover       : true,
+				arrows      : false,
+				isNavigation: true,
+				breakpoints : {
+					600: {
+						fixedWidth : 60,
+						fixedHeight: 44,
+					},
+				},
+			});
+
+			splideMain.sync(splideThumbnails);
+			splideMain.mount();
+			splideThumbnails.mount();
+		} else {
+			splideMain.mount();
+		}
 	});
 
 	void holdRenderForPosts(params);
