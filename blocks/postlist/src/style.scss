@@ -9,6 +9,10 @@ $primary: #1351B4;
 
 
 .wp-block-create-block-ufr-postlist {
+	.btn-col {
+		margin-left: 10px;
+	}
+
 	.btn_wrap {
 		z-index: 10;
 		float: right;
@@ -134,15 +138,16 @@ $primary: #1351B4;
 	}
 
 	.title {
-		height: $titleHeight;
+		// height: $titleHeight;
 		font-weight: bold;
-		font-size: 115%;
+		// font-size: 115%;
 	}
 
 	.excerpt {
-		height: $excerptHeight;
+		// height: $excerptHeight;
 		overflow: hidden;
 		display: flex;
+		margin-top: 5px;
 
 		span {
 			display: inline-block;
@@ -151,12 +156,14 @@ $primary: #1351B4;
 	}
 
 	.thumbnail {
-		background-size: cover;
-		height: $boxHeight;
-		margin-left: 20px;
-		width: 100%;
-		background-repeat: no-repeat;
-		background-position: center;
+		display: flex;
+		align-items: center;
+		// margin-left: 20px;
+		// background-size: cover;
+		// height: $boxHeight;
+		// width: 100%;
+		// background-repeat: no-repeat;
+		// background-position: center;
 	}
 
 	.wrapper {

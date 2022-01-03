@@ -82,9 +82,10 @@ async function ufrSetUpPostLists(params) {
 			</div>` : '';
 
 		const renderedThumbnail = showThumbnail ? `
-			<div class="col-2 thumbnail"
-				 style="background-image: url('${img}');"
-			></div>` : '';
+			<div class="col-2 thumbnail">
+				<img src="${img}" alt="">
+			</div>
+		` : '';
 
 		const boxStyle = `
 				padding: ${((useContainer || useBorder) && !showThumbnail && !showExcerpt) ? '10px 10px 25px' : '10px'};
@@ -102,6 +103,31 @@ async function ufrSetUpPostLists(params) {
 			whatsapp: `https://api.whatsapp.com/send?text=${encodeURI(title + '\n' + link)}`,
 		}
 
+		const shareBtn = `
+			<div class="col-2 btn-col">
+				<div class="btn_wrap">
+        			<span>Compartilhar</span>
+        			<div class="container">
+            			<i class="fab fa-facebook-f"
+            			   onclick="window.open('${shareLinks.facebook}', '_blank')"
+            			   onauxclick="window.open('${shareLinks.facebook}', '_blank')"
+            			></i>
+
+            			<i class="fab fa-twitter"
+            			   onclick="window.open('${shareLinks.twitter}', '_blank')"
+            			   onauxclick="window.open('${shareLinks.twitter}', '_blank')"
+            			></i>
+
+            			<i class="fab fa-whatsapp"
+            			   onclick="window.open('${shareLinks.whatsapp}', '_blank')"
+            			   onauxclick="window.open('${shareLinks.whatsapp}', '_blank')"
+            			></i>
+        			</div>
+        			<!-- credits: dribbble.com/YancyMin -->
+    			</div>
+			</div>
+		`;
+
 		list.innerHTML += `
 				<div class="col-12 box"
 					 style="${boxStyle.replace('\n', '')}"
@@ -115,27 +141,15 @@ async function ufrSetUpPostLists(params) {
 						<div class="col">
 							<div class="row">
 								<div class="col-12 title">
-									<span class="title" style="${(!showExcerpt && showThumbnail) && 'line-height: 80px;'}">
-										${title ?? ''}
-									</span>
+									<div class="row">
+										<div class="col">
+											<span class="title">
+												${title ?? ''}
+											</span>
+										</div>
 
-									<div class="btn_wrap">
-        								<span>Compartilhar</span>
-        								<div class="container">
-            								<i class="fab fa-facebook-f"
-            								   onclick="window.open('${shareLinks.facebook}', '_blank')"
-            								></i>
-
-            								<i class="fab fa-twitter"
-            								   onclick="window.open('${shareLinks.twitter}', '_blank')"
-            								></i>
-
-            								<i class="fab fa-whatsapp"
-            								   onclick="window.open('${shareLinks.whatsapp}', '_blank')"
-            								></i>
-        								</div>
-        								<!-- credits: dribbble.com/YancyMin -->
-    								</div>
+										${window.ufrGlobals.isMobile ? '' : shareBtn}
+									</div>
 								</div>
 
 								${renderedExcerpt}
