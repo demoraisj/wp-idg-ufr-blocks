@@ -34,26 +34,26 @@ export default function Render({ preview, attributes }) {
 	};
 
 	function RenderFromImages({ thumbnail = false }) {
-	    return images.map(({ caption, alt, url }) => {
+		return images.map(({ caption, alt, url }) => {
 			const useLegend = !thumbnail && caption;
 
-            return (
-	            <li className="splide__slide" data-splide-interval={duration * 1000}>
-		            <img src={url} alt={alt ?? ''} />
+			return (
+				<li className="splide__slide" data-splide-interval={duration * 1000}>
+					<img src={url} alt={alt ?? ''} />
 
-		            {useLegend &&
-		                <div className="description">
-			                {caption}
-		                </div>
+					{useLegend &&
+						<div className="description">
+							{caption}
+						</div>
 					}
-	            </li>
-            );
-        });
+				</li>
+			);
+		});
 	}
 
 	return (
 		<Fragment>
-			<div className={`splide-container ${useCard && 'br-card'}`} style={containerStyle}>
+			<div className={`splide-container ${useCard && 'br-card'}`} style={containerStyle} data-slide-container={`${sliderID}-container`}>
 				<div className="splide splide-main" id={sliderID}>
 					<div className="splide__track">
 						<ul className="splide__list">

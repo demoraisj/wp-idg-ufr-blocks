@@ -13,71 +13,75 @@
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
-  	"attributes": {
+	"attributes": {
 		"slides": {
 			"type": "array",
-            "default": []
+			"default": []
 		},
 		"usePosts": {
-            "type": "boolean",
-            "default": false
-        },
+			"type": "boolean",
+			"default": false
+		},
 		"postType": {
-            "type": "string",
+			"type": "string",
 			"enum": ["most-recent", "most-seen", "category", "tag"],
-            "default": "most-recent"
-        },
+			"default": "most-recent"
+		},
 		"postCategory" : {
-            "type": "string",
-            "default": ""
-        },
+			"type": "string",
+			"default": ""
+		},
 		"postTag" : {
 			"type": "string",
 			"default": ""
 		},
 		"duration": {
-            "type": "number",
-            "default": 5
-        },
+			"type": "number",
+			"default": 5
+		},
 		"images": {
 			"type": "array",
 			"default": []
 		},
 		"postsQuantity": {
-            "type": "number",
-            "default": 10
-        },
+			"type": "number",
+			"default": 10
+		},
 		"sliderID": {
-            "type": "string"
-        },
+			"type": "string"
+		},
 		"useCard": {
 			"type": "boolean",
 			"default": true
 		},
 		"useContainer": {
-            "type": "boolean",
-            "default": false
-        },
+			"type": "boolean",
+			"default": false
+		},
 		"containerColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
+			"type": "string",
+			"default": "#ffffff"
+		},
 		"showTitle": {
-            "type": "boolean",
-            "default": true
-        },
+			"type": "boolean",
+			"default": true
+		},
 		"showExcerpt": {
 			"type": "boolean",
 			"default": true
 		},
 		"height": {
-            "type": "string",
-            "default": "400px"
-        },
+			"type": "string",
+			"default": "400px"
+		},
+		"width": {
+			"type": "string",
+			"default": "800px"
+		},
 		"autoplay": {
-            "type": "boolean",
-            "default": true
-        },
+			"type": "boolean",
+			"default": true
+		},
 		"wpPostType": {
 			"type": "string",
 			"default": "noticia"

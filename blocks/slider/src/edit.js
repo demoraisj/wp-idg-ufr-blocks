@@ -1,5 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { UFRBlockHeader, UFRSelect, UFRCheckbox, UFRGaleryBtn, UFRInput }from '../../../components/dist/index.modern';
+import { UFRBlockHeader, UFRSelect, UFRCheckbox, UFRGaleryBtn, UFRInput }from '../../components/dist/index.modern';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { Fragment } from 'react';
@@ -34,6 +34,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		showTitle,
 		postsQuantity,
 		height,
+		width,
 		autoplay,
 		wpPostType,
 	} = attributes;
@@ -207,6 +208,14 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							value={height}
 							type="text"
 							attr="height"
+							setter={setAttributes}
+						/>
+
+						<UFRInput
+							label="Largura do Slider (Incluir unidade de medida. Ex.: 800px)"
+							value={width}
+							type="text"
+							attr="width"
 							setter={setAttributes}
 						/>
 

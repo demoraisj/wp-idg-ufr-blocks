@@ -1,5 +1,5 @@
 function ufrSetUpSliders(params) {
-	const { autoplay, height, sliderID } = params;
+	const { autoplay, height, width, sliderID } = params;
 
 	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
 		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`;
@@ -38,12 +38,9 @@ function ufrSetUpSliders(params) {
 		if (!usePosts) return window.dispatchEvent(ufrLoadPosts);
 
 		const mainSlider = document.getElementById(sliderID);
-		const container = mainSlider.querySelector('.splide-container');
 		const thumbnailSlider = document.getElementById(`${sliderID}-thumbnail`);
 		const mainList = mainSlider.querySelector('.splide__list');
 		const thumbnailList = thumbnailSlider.querySelector('.splide__list');
-
-		// Loader
 
 		const posts = await getPosts(postType, postCategory, postTag, postsQuantity, wpPostType);
 
@@ -75,7 +72,7 @@ function ufrSetUpSliders(params) {
 				<div class="description">
 					<span class="title">${title ?? ''}</span>
 					<br/>
-					${excerpt ?? ''}
+					<span class="excerpt">${excerpt ?? ''}</span>
 				</div>
 			` : '';
 
@@ -106,32 +103,53 @@ function ufrSetUpSliders(params) {
 
 	window.addEventListener('ufrLoadPosts', function() {
 		const main = document.getElementById(sliderID);
+		const container = document.querySelector(`div[data-slide-container="${sliderID}-container"]`);
 
 		const splideMain = new Splide(main, {
-			type      : 'fade',
-			rewind    : true,
+			type: 'fade',
+			rewind: true,
 			pagination: false,
-			arrows    : true,
-			cover     : true,
+			arrows: true,
+			cover: true,
+			width,
 			height,
 			autoplay,
+
+			breakpoints: {
+				640: {
+					width: 640,
+					height: 320,
+				},
+			}
 		});
+
+		splideMain.on('updated', (options) => {
+			if (container) container.style.width = options.width;
+		});
+
+		splideMain.on('mounted', () => {
+			if (container) container.style.width = splideMain.options.width;
+
+			if (container?.style.width <= 640) {
+				main.querySelectorAll('.description > .excerpt').forEach(el => el.style.display = 'none');
+			}
+		})
 
 		if (!window.ufrGlobals.isMobile) {
 			const thumb = document.getElementById(`${sliderID}-thumbnail`);
 
 			const splideThumbnails = new Splide(thumb, {
-				fixedWidth  : 100,
-				fixedHeight : 60,
-				gap         : 10,
-				rewind      : true,
-				pagination  : false,
-				cover       : true,
-				arrows      : false,
+				fixedWidth: 100,
+				fixedHeight: 60,
+				gap: 10,
+				rewind: true,
+				pagination: false,
+				cover: true,
+				arrows: false,
 				isNavigation: true,
-				breakpoints : {
+				breakpoints: {
 					600: {
-						fixedWidth : 60,
+						fixedWidth: 60,
 						fixedHeight: 44,
 					},
 				},
