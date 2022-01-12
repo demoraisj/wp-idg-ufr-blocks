@@ -23,6 +23,7 @@ export default function Render({ preview, attributes }) {
 		showTitle,
 		postsQuantity,
 		height,
+		width,
 		autoplay,
 		wpPostType,
 	} = attributes;
@@ -85,6 +86,7 @@ export default function Render({ preview, attributes }) {
 							duration: ${duration},
 							autoplay: ${autoplay},
 							height: '${height}',
+							width: '${width}',
 							showExcerpt: ${showExcerpt},
 					        showTitle: ${showTitle},
 							wpPostType: '${wpPostType}',
