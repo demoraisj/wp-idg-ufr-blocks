@@ -1,0 +1,43 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-collapse-list-card",
+	"version": "0.1.0",
+	"title": "UFR - Cartão Lista Retrátil",
+	"category": "widgets",
+	"icon": "align-full-width",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-collapse-list-card",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"items": {
+			"type": "string",
+			"default": "[]"
+		},
+		"title": {
+			"type": "string",
+			"default": "Título"
+		},
+		"icon": {
+			"type": "string",
+			"default": "fas fa-star"
+		},
+		"collapsed": {
+			"type": "boolean",
+			"default": true
+		},
+		"target": {
+			"type": "string",
+			"default": "_self"
+		}
+	}
+}
