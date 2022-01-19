@@ -1,5 +1,5 @@
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { UFRBlockHeader, UFRSelect, UFRInput, UFRIconPicker, UFRListBuilder, UFRCheckbox } from '../../../components';
+import { UFRBlockHeader, UFRSelect, UFRInput, UFRIconPicker, UFRListBuilder, UFRCheckbox } from '../../../components/dist/index.modern';
 import { Fragment } from 'react';
 import Render from "./render";
 import './editor.scss';

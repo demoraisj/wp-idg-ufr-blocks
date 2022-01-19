@@ -26,8 +26,8 @@
 			"type": "string"
 		},
 		"postsQuantity": {
-            "type": "number",
-            "default": 4
+            "type": "string",
+            "default": "4"
         },
 		"listID": {
             "type": "string"
