@@ -1,0 +1,44 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-news-panel",
+	"version": "0.1.0",
+	"title": "UFR - Painel de Notícias",
+	"category": "widgets",
+	"icon": "welcome-widgets-menus",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-news-panel",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"panelID": {
+			"type": "string"
+		},
+		"postType": {
+			"type": "string",
+			"enum": ["most-seen", "most-recent", "category", "tag"],
+			"default": "most-recent"
+		},
+		"postCategory" : {
+			"type": "string"
+		},
+		"postTag" : {
+			"type": "string"
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": false
+		},
+		"showShareBtn": {
+			"type": "boolean",
+			"default": true
+		},
+		"wpPostType": {
+			"type": "string",
+			"default": "noticia"
+		}
+	}
+}
