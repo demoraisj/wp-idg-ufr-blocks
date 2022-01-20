@@ -112,6 +112,9 @@ async function ufrSetPostBox(params) {
 		return string;
 	}
 
+	box.onclick = () => window.open(link, '_self');
+	box.onauxclick = () => window.open(link, '_blank');
+
 	const shareLinks = {
 		facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(link)}`,
 		twitter: `https://twitter.com/intent/tweet?url=${encodeURI(link)}&text=${encodeURI('Veja este interessante artigo: ' + title)}`,
