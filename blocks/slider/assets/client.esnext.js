@@ -70,9 +70,9 @@ function ufrSetUpSliders(params) {
 			const useLegends = showTitle || showExcerpt;
 			const legend = useLegends ? `
 				<div class="description">
-					<span class="title">${title ?? ''}</span>
+					<span class="title">${showTitle ? title : ''}</span>
 					<br/>
-					<span class="excerpt">${excerpt ?? ''}</span>
+					<span class="excerpt">${showExcerpt ? excerpt : ''}</span>
 				</div>
 			` : '';
 
