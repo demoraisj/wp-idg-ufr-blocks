@@ -44,6 +44,14 @@ async function ufrSetNewsPanel(params) {
 			return;
 		}
 
+		if (window.ufrGlobals.isMobile) {
+			panelBox.style.width = '640px';
+			panelBox.style.height = '320px';
+		} else {
+			panelBox.style.width = '750px';
+			panelBox.style.height = '390px';
+		}
+
 		const { link, _embedded, thumbnail } = posts[0];
 		let { excerpt, title } = posts[0];
 

@@ -11,7 +11,7 @@ export default function Render({preview, attributes}) {
 	return (
 		<div className="br-card p-2" data-panel={panelID}>
 			<div className="row d-flex align-items-center h-100">
-				<div className="col">
+				<div className="col-lg-6 col-sm-12">
 					<div className="panel-box">
 						{showShareBtn &&
 							<div className="btn_wrap share-btn-box">
@@ -33,7 +33,7 @@ export default function Render({preview, attributes}) {
 					</div>
 				</div>
 
-				<div className="col">
+				<div className="col-lg-6 col-sm-12">
 					<div className="row d-flex align-items-center h-100">
 						<div className="panel-list" />
 					</div>
