@@ -118,7 +118,7 @@ function ufrSetUpSliders(params) {
 			breakpoints: {
 				640: {
 					width: 640,
-					height: 320,
+					height: ((main.clientWidth * 60.9) / 100).toString() + 'px',
 				},
 			}
 		});

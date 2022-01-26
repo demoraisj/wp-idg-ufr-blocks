@@ -10,17 +10,26 @@ async function ufrSetNewsPanel(params) {
 	} = params;
 
 	async function getPosts(postType, postCategory, postTag, wpPostType) {
-		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=5`
+		const postsUrl =
+			window.ufrGlobals.siteUrl +
+			`/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=5`;
 
 		switch (postType) {
 			case 'most-recent':
 				return (await fetch(postsUrl)).json();
 
 			case 'most-seen':
-				return (await fetch(window.ufrGlobals.siteUrl + `/wp-json/ufr/most-seen-posts?quantity=5`)).json();
+				return (
+					await fetch(
+						window.ufrGlobals.siteUrl +
+						`/wp-json/ufr/most-seen-posts?quantity=5`
+					)
+				).json();
 
 			case 'category':
-				return (await fetch(postsUrl + `&categories=${postCategory}`)).json();
+				return (
+					await fetch(postsUrl + `&categories=${postCategory}`)
+				).json();
 
 			case 'tag':
 				return (await fetch(postsUrl + `&tags=${postTag}`)).json();
@@ -30,7 +39,9 @@ async function ufrSetNewsPanel(params) {
 	const posts = await getPosts(postType, postCategory, postTag, wpPostType);
 
 	function populateTheBox() {
-		const panelBox = document.querySelector(`[data-panel='${panelID}']`).querySelector('.panel-box');
+		const panelBox = document
+			.querySelector(`[data-panel='${panelID}']`)
+			.querySelector('.panel-box');
 		const panelBoxTitle = panelBox.querySelector('.title');
 		const panelBoxExcerpt = panelBox.querySelector('.excerpt');
 		const panelBoxContent = panelBox.querySelector('.content');
@@ -39,14 +50,15 @@ async function ufrSetNewsPanel(params) {
 		const panelBoxShareWpp = panelBox.querySelector('.fa-whatsapp');
 
 		if (!posts || posts.length === 0) {
-			panelBox.innerHTML = '<div class="not-found">Nenhum post encontrado.</div>';
+			panelBox.innerHTML =
+				'<div class="not-found">Nenhum post encontrado.</div>';
 
 			return;
 		}
-
 		if (window.ufrGlobals.isMobile) {
 			panelBox.style.width = '90vw';
-			panelBox.style.height = '390px';
+			panelBox.style.height =
+				((panelBox.clientWidth * 60.9) / 100).toString() + 'px';
 		} else {
 			panelBox.style.width = '750px';
 			panelBox.style.height = '390px';
@@ -58,7 +70,9 @@ async function ufrSetNewsPanel(params) {
 		// Placeholder
 		let img = window.ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
 
-		const embeddedImg = _embedded ? _embedded['wp:featuredmedia']?.[0]?.source_url : undefined;
+		const embeddedImg = _embedded
+			? _embedded['wp:featuredmedia']?.[0]?.source_url
+			: undefined;
 
 		/**
 		 * Existe uma diferença entre os dados obtidos, alguns atributos mudam quando obtidos por 'mais vistos' ou outro modo.
@@ -82,56 +96,85 @@ async function ufrSetNewsPanel(params) {
 		}
 
 		const shareLinks = {
-			facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(link.replace('&#038;', '&'))}`,
-			twitter: `https://twitter.com/intent/tweet?url=${encodeURI(link.replace('&#038;', '&'))}&text=${encodeURI('Veja este interessante artigo: ' + title)}`,
-			whatsapp: `https://api.whatsapp.com/send?text=${encodeURI(title + '\n' + link.replace('&#038;', '&'))}`,
-		}
+			facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(
+				link.replace('&#038;', '&')
+			)}`,
+			twitter: `https://twitter.com/intent/tweet?url=${encodeURI(
+				link.replace('&#038;', '&')
+			)}&text=${encodeURI('Veja este interessante artigo: ' + title)}`,
+			whatsapp: `https://api.whatsapp.com/send?text=${encodeURI(
+				title + '\n' + link.replace('&#038;', '&')
+			)}`,
+		};
 
 		panelBox.style.backgroundImage = `url(${img})`;
 		panelBoxTitle.innerHTML = title ?? '';
-		panelBoxExcerpt.innerHTML = (showExcerpt && excerpt) ? strip(excerpt) : '';
+		panelBoxExcerpt.innerHTML =
+			showExcerpt && excerpt ? strip(excerpt) : '';
 
 		if (showShareBtn) {
-			panelBoxShareFb.onclick = () => window.open(shareLinks.facebook, '_blank');
-			panelBoxShareTt.onclick = () => window.open(shareLinks.twitter, '_blank');
-			panelBoxShareWpp.onclick = () => window.open(shareLinks.whatsapp, '_blank');
+			panelBoxShareFb.onclick = () =>
+				window.open(shareLinks.facebook, '_blank');
+			panelBoxShareTt.onclick = () =>
+				window.open(shareLinks.twitter, '_blank');
+			panelBoxShareWpp.onclick = () =>
+				window.open(shareLinks.whatsapp, '_blank');
 
-			panelBoxShareFb.onauxclick = () => window.open(shareLinks.facebook, '_blank');
-			panelBoxShareTt.onauxclick = () => window.open(shareLinks.twitter, '_blank');
-			panelBoxShareWpp.onauxclick = () => window.open(shareLinks.whatsapp, '_blank');
+			panelBoxShareFb.onauxclick = () =>
+				window.open(shareLinks.facebook, '_blank');
+			panelBoxShareTt.onauxclick = () =>
+				window.open(shareLinks.twitter, '_blank');
+			panelBoxShareWpp.onauxclick = () =>
+				window.open(shareLinks.whatsapp, '_blank');
 		}
 
-		panelBox.onclick = () => window.open(link.replace('&#038;', '&'), '_self');
-		panelBox.onauxclick = () => window.open(link.replace('&#038;', '&'), '_blank');
+		panelBox.onclick = () =>
+			window.open(link.replace('&#038;', '&'), '_self');
+		panelBox.onauxclick = () =>
+			window.open(link.replace('&#038;', '&'), '_blank');
 	}
 
 	function populateTheList() {
-		const panelList = document.querySelector(`[data-panel='${panelID}']`).querySelector('.panel-list');
+		const panelList = document
+			.querySelector(`[data-panel='${panelID}']`)
+			.querySelector('.panel-list');
 
 		if (!posts || posts.length === 0) {
-			panelList.innerHTML = '<div class="not-found">Nenhum post encontrado.</div>';
+			panelList.innerHTML =
+				'<div class="not-found">Nenhum post encontrado.</div>';
 
 			return;
 		}
 
 		posts.forEach(({ link, title, _embedded, excerpt }, index) => {
-			if (index === 0) return panelList.innerHTML += '<hr/>';
+			if (index === 0) return (panelList.innerHTML += '<hr/>');
 
 			if (!(postType === 'most-seen')) {
 				title = title?.rendered;
 				excerpt = excerpt?.rendered;
 			}
 
-			const renderedExcerpt = showExcerpt && excerpt ? `
+			const renderedExcerpt =
+				showExcerpt && excerpt
+					? `
 			<div class="col-12 excerpt">
 				<span>${excerpt}</span>
-			</div>` : '';
+			</div>`
+					: '';
 
 			const shareLinks = {
-				facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(link)}`,
-				twitter: `https://twitter.com/intent/tweet?url=${encodeURI(link)}&text=${encodeURI('Veja este interessante artigo: ' + title)}`,
-				whatsapp: `https://api.whatsapp.com/send?text=${encodeURI(title + '\n' + link)}`,
-			}
+				facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(
+					link
+				)}`,
+				twitter: `https://twitter.com/intent/tweet?url=${encodeURI(
+					link
+				)}&text=${encodeURI(
+					'Veja este interessante artigo: ' + title
+				)}`,
+				whatsapp: `https://api.whatsapp.com/send?text=${encodeURI(
+					title + '\n' + link
+				)}`,
+			};
 
 			const shareBtn = `
 			<div class="col-2 btn-col">
@@ -187,7 +230,7 @@ async function ufrSetNewsPanel(params) {
 
 				<hr />
 		`;
-		})
+		});
 	}
 
 	populateTheBox();
