@@ -4,7 +4,7 @@
  * Description:       Dependências dos blocos do tema WP-IDG-UFR
  * Requires at least: 5.8
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            UFR
  * Text Domain:       blocks-dependencies
  */
