@@ -7,6 +7,8 @@
 .wp-block-create-block-ufr-collapse-list-card {
 	.heading {
 		cursor: pointer;
+		text-wrap: none;
+		flex-wrap: nowrap;
 
 		.title {
 			font-size: 130%;
