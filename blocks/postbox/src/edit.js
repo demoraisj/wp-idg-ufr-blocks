@@ -80,7 +80,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				}
 
 				const options = res.map((item) => ({
-					label: item.name,
+					label: item.name === 'post' ? 'posts' : item.name,
 					value: item?.id ?? item?.slug,
 				}));
 
@@ -90,8 +90,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 	}, []);
 
 	useEffect(() => {
-		if (postType === 'category' && !postCategory) setAttributes({ postCategory: categoryOptions[0].value });
-		if (postType === 'tag' && !postTag) setAttributes({ postTag: tagOptions[0].value });
+		if (postType === 'category' && categoryOptions?.length > 0 && !postCategory) setAttributes({ postCategory: categoryOptions[0].value });
+		if (postType === 'tag' && tagOptions?.length > 0 && !postTag) setAttributes({ postTag: tagOptions[0].value });
 	}, [postType, categoryOptions, tagOptions]);
 
 	useEffect(() => {

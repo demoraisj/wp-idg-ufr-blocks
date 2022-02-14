@@ -84,7 +84,7 @@
 		},
 		"wpPostType": {
 			"type": "string",
-			"default": "noticia"
+			"default": "posts"
 		}
 	}
 }

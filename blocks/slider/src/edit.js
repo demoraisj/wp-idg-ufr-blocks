@@ -80,7 +80,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				}
 
 				const options = res.map((item) => ({
-					label: item.name,
+					label: item.name === 'post' ? 'posts' : item.name,
 					value: item?.id ?? item?.slug,
 				}));
 
