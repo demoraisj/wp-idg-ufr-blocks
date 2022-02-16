@@ -67,12 +67,12 @@ function ufrSetUpSliders(params) {
 			if (!(postType === 'most-seen')) title = title?.rendered;
 			if (!(postType === 'most-seen')) excerpt = excerpt?.rendered;
 
-			const useLegends = showTitle || showExcerpt;
+			const useLegends = showTitle && title?.length > 0 || showExcerpt && title?.length > 0;
 			const legend = useLegends ? `
 				<div class="description">
-					<span class="title">${showTitle ? title : ''}</span>
+					<span class="title">${showTitle ? title ?? '' : ''}</span>
 					<br/>
-					<span class="excerpt">${showExcerpt ? excerpt : ''}</span>
+					<span class="excerpt">${showExcerpt ? excerpt ?? '' : ''}</span>
 				</div>
 			` : '';
 
