@@ -37,6 +37,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		width,
 		autoplay,
 		wpPostType,
+		mobileHeight,
 	} = attributes;
 
 	const [wpPostTypeOptions, setWpPostTypeOptions] = useState([]);
@@ -208,6 +209,14 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							value={height}
 							type="text"
 							attr="height"
+							setter={setAttributes}
+						/>
+
+						<UFRInput
+							label="Altura do Slider (Mobile)"
+							value={mobileHeight}
+							type="text"
+							attr="mobileHeight"
 							setter={setAttributes}
 						/>
 

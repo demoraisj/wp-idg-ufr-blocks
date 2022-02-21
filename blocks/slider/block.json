@@ -85,6 +85,10 @@
 		"wpPostType": {
 			"type": "string",
 			"default": "posts"
+		},
+		"mobileHeight": {
+			"type": "string",
+			"default": "190px"
 		}
 	}
 }

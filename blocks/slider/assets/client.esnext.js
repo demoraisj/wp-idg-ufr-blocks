@@ -1,5 +1,5 @@
 function ufrSetUpSliders(params) {
-	const { autoplay, height, width, sliderID } = params;
+	const { autoplay, height, mobileHeight, width, sliderID } = params;
 
 	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
 		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`;
@@ -118,7 +118,7 @@ function ufrSetUpSliders(params) {
 			breakpoints: {
 				640: {
 					width: 640,
-					height: ((main.clientWidth * 60.9) / 100).toString() + 'px',
+					height: mobileHeight,
 				},
 			}
 		});
