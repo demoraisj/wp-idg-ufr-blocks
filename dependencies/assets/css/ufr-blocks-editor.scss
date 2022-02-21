@@ -177,6 +177,6 @@ $primary: #007cba;
   }
 }
 
-.html :where(.wp-block) {
+.wp-block {
   max-width: unset !important;
 }

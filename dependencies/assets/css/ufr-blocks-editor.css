@@ -141,8 +141,8 @@
   font-size: 80%;
 }
 
-.html :where(.wp-block) {
-  max-width: unset;
+.wp-block {
+  max-width: unset !important;
 }
 
 /*# sourceMappingURL=ufr-blocks-editor.css.map */
