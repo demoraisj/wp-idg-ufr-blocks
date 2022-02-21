@@ -69,7 +69,7 @@ function ufrSetUpSliders(params) {
 
 			const useLegends = (showTitle && title?.length > 0) || (showExcerpt && excerpt?.length > 0);
 			const legend = useLegends ? `
-				<div class="description">
+				<div class="description slide-description">
 					<span class="title">${showTitle ? title : ''}</span>
 					<br/>
 					<span class="excerpt">${showExcerpt ? excerpt : ''}</span>
@@ -131,7 +131,7 @@ function ufrSetUpSliders(params) {
 			if (container) container.style.width = splideMain.options.width;
 
 			if (container?.style.width <= 640) {
-				main.querySelectorAll('.description > .excerpt').forEach(el => el.style.display = 'none');
+				main.querySelectorAll('.description').forEach(el => el.style.display = 'none');
 			}
 		})
 
