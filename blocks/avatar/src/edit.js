@@ -99,7 +99,6 @@ export default function edit( { attributes, setAttributes, isSelected } ) {
 				<div className="col config">
 					<UFRBlockHeader
 						title="Avatar"
-						description="Escolha o tipo de avatar, e como ele será apresentado."
 					/>
 
 					<UFRSelect
@@ -124,18 +123,6 @@ export default function edit( { attributes, setAttributes, isSelected } ) {
 					/>
 
 					{ switchContentChoice( type ) }
-				</div>
-
-				<div className="row preview">
-					<div className="col-12 text-center">
-						<span className={ 'br-avatar ' + size } title={ text }>
-							{ switchType( type ) }
-						</span>
-					</div>
-
-					<div className={ 'col-12 text-center mt-3 ' + textSize }>
-						{ text }
-					</div>
 				</div>
 			</div>
 		</div>

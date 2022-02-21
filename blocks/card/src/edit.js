@@ -42,7 +42,6 @@ export default function edit({ isSelected }) {
 					>
 						<UFRBlockHeader
 							title="Cartão"
-							description="Dentro deste cartão você pode editar, remover e adicionar outros blocos como desejar."
 						/>
 					</div>
 

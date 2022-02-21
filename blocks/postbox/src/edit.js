@@ -171,7 +171,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Caixa de Postagem"
-							description="Configure a aparenência abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
 
 						<UFRSelect

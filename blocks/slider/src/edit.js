@@ -134,7 +134,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Slider de Imagens e Postagens"
-							description="Configure a aparenência do slider abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
 
 						<UFRCheckbox

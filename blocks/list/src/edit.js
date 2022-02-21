@@ -91,7 +91,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Lista"
-							description="Configure a aparenência do lista abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
 
 						<UFRSelect
@@ -130,10 +129,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							attr="items"
 							setter={setAttributes}
 						/>
-					</div>
-
-					<div className="row preview">
-						<Render attributes={attributes} />
 					</div>
 				</div>
 			</div>

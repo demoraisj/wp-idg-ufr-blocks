@@ -128,7 +128,6 @@ export default function edit( { attributes, setAttributes, isSelected } ) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Botão"
-							description="Configure a aparenência do botão abaixo."
 						/>
 
 						<UFRSelect
@@ -180,18 +179,6 @@ export default function edit( { attributes, setAttributes, isSelected } ) {
 							setter={ setAttributes }
 							value={ icon }
 						/>
-					</div>
-
-					<div className="row preview">
-						{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
-						<a
-							className={ `br-button ${ type } ${ style } ${ size }` }
-							type="button"
-							href="javascript:void(0)"
-						>
-							<i className={ iconClassName } />
-							{ text }
-						</a>
 					</div>
 				</div>
 			</div>

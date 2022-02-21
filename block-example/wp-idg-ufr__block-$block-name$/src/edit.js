@@ -47,12 +47,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="$block-title-capitalized$"
-							description="Configure a aparenência do $block-title-lowcase$ abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
-					</div>
-
-					<div className="row preview">
-						<Render attributes={attributes} preview={true} />
 					</div>
 				</div>
 			</div>

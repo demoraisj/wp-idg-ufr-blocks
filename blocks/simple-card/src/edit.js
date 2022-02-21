@@ -47,7 +47,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Cartão Simples"
-							description="Configure a aparenência do Cartão Simples abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
 
 						<UFRInput
@@ -81,10 +80,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 						/>
 
 						<UFRIconPicker setter={setAttributes} value={icon} />
-					</div>
-
-					<div className="row preview">
-						<Render attributes={attributes} />
 					</div>
 				</div>
 			</div>

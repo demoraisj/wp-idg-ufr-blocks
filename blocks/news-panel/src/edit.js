@@ -118,7 +118,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 					<div className="col config">
 						<UFRBlockHeader
 							title="Painel de Notícias"
-							description="Configure a aparenência do Painel de Notícias abaixo. Outras configurações podem estar disponíveis no menu á direita."
 						/>
 
 						<UFRSelect
