@@ -113,6 +113,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				height,
 				width,
 				wpPostType,
+				mobileHeight,
 			});
 		}
 	}, [isSelected])

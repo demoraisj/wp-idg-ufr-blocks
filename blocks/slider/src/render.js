@@ -26,6 +26,7 @@ export default function Render({ preview, attributes }) {
 		width,
 		autoplay,
 		wpPostType,
+		mobileHeight,
 	} = attributes;
 
 	const containerStyle = {
@@ -90,6 +91,7 @@ export default function Render({ preview, attributes }) {
 							showExcerpt: ${showExcerpt},
 					        showTitle: ${showTitle},
 							wpPostType: '${wpPostType}',
+							mobileHeight: '${mobileHeight}',
 						})
 					});
 				`}
