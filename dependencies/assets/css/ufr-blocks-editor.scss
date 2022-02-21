@@ -176,3 +176,7 @@ $primary: #007cba;
     }
   }
 }
+
+.html :where(.wp-block) {
+  max-width: unset !important;
+}
