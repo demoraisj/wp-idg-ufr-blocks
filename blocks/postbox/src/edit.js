@@ -96,19 +96,19 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 
 	useEffect(() => {
 		if (postSelection === 'pick') {
-			let path = '/wp/v2/posts?_embed=&_locale=user';
+			let path = `/wp/v2/${wpPostType}?_embed=&_locale=user`;
 
 			switch (postType) {
 				case 'most-seen':
-					path = '/ufr/most-seen-posts'
+					path = `/ufr/most-seen-posts?type=${wpPostType}`;
 					break;
 
 				case 'category':
-					path += `&categories=${postCategory}`
+					path += `&categories=${postCategory}`;
 					break;
 
 				case 'tag':
-					path += `&tags=${postTag}`
+					path += `&tags=${postTag}`;
 					break;
 			}
 
@@ -133,7 +133,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				if (!post) setAttributes({ post: options[0].value });
             })
 		}
-	}, [postSelection, postType, postCategory, postTag]);
+	}, [postSelection, postType, postCategory, postTag, wpPostType]);
 
 	useEffect(() => {
 		if (!isSelected) {
