@@ -27,6 +27,8 @@ export default function Render({ preview, attributes }) {
 		autoplay,
 		wpPostType,
 		mobileHeight,
+		useThumbnails,
+		disableLegendOnMobile,
 	} = attributes;
 
 	const containerStyle = {
@@ -64,13 +66,15 @@ export default function Render({ preview, attributes }) {
 					</div>
 				</div>
 
-				<div className="splide splide-thumbnail" id={`${sliderID}-thumbnail`}>
-					<div className="splide__track">
-						<ul className="splide__list">
-							{!usePosts && <RenderFromImages thumbnail />}
-						</ul>
+				{useThumbnails && (
+					<div className="splide splide-thumbnail" id={`${sliderID}-thumbnail`}>
+						<div className="splide__track">
+							<ul className="splide__list">
+								{!usePosts && <RenderFromImages thumbnail />}
+							</ul>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 
 			{/* @see assets/client.esnext.js */}
@@ -92,6 +96,8 @@ export default function Render({ preview, attributes }) {
 					        showTitle: ${showTitle},
 							wpPostType: '${wpPostType}',
 							mobileHeight: '${mobileHeight}',
+							useThumbnails: ${useThumbnails},
+							disableLegendOnMobile: ${disableLegendOnMobile},
 						})
 					});
 				`}

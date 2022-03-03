@@ -38,6 +38,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		autoplay,
 		wpPostType,
 		mobileHeight,
+		disableLegendOnMobile,
+		useThumbnails,
 	} = attributes;
 
 	const [wpPostTypeOptions, setWpPostTypeOptions] = useState([]);
@@ -114,6 +116,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				width,
 				wpPostType,
 				mobileHeight,
+				disableLegendOnMobile,
+				useThumbnails,
 			});
 		}
 	}, [isSelected])
@@ -245,6 +249,13 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 						/>
 
 						<UFRCheckbox
+							label="Mostrar miniaturas"
+							checked={useThumbnails}
+							attr="useThumbnails"
+							setter={setAttributes}
+						/>
+
+						<UFRCheckbox
 							label="Mostrar Título da Postagem"
 							checked={showTitle}
 							attr="showTitle"
@@ -255,6 +266,13 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							label="Mostrar Descrição da Postagem"
 							checked={showExcerpt}
 							attr="showExcerpt"
+							setter={setAttributes}
+						/>
+
+						<UFRCheckbox
+							label="Desativar legendas quando em mobile"
+							checked={disableLegendOnMobile}
+							attr="disableLegendOnMobile"
 							setter={setAttributes}
 						/>
 

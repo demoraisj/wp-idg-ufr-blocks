@@ -89,6 +89,14 @@
 		"mobileHeight": {
 			"type": "string",
 			"default": "190px"
+		},
+		"useThumbnails": {
+			"type": "boolean",
+			"default": true
+		},
+		"disableLegendOnMobile": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

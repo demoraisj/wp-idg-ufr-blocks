@@ -1,5 +1,5 @@
 function ufrSetUpSliders(params) {
-	const { autoplay, height, mobileHeight, width, sliderID } = params;
+	const { autoplay, height, mobileHeight, width, sliderID, useThumbnails, disableLegendOnMobile } = params;
 
 	async function getPosts(postType, postCategory, postTag, postsQuantity, wpPostType) {
 		const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/wp/v2/${wpPostType}?_embed=&_locale=user&per_page=${postsQuantity}`;
@@ -89,7 +89,7 @@ function ufrSetUpSliders(params) {
 				</li>
 			`;
 
-			if (!window.ufrGlobals.isMobile) {
+			if (useThumbnails && !window.ufrGlobals.isMobile) {
 				thumbnailList.innerHTML += `
 					<li class="splide__slide">
 						<img src="${img}" alt="${imgAlt}" />
@@ -125,17 +125,20 @@ function ufrSetUpSliders(params) {
 
 		splideMain.on('updated', (options) => {
 			if (container) container.style.width = options.width;
+			if (container) container.style.height = options.height + 15;
 		});
 
 		splideMain.on('mounted', () => {
 			if (container) container.style.width = splideMain.options.width;
+			if (container) container.style.height = splideMain.options.height + 15;
 
-			if (container?.style.width <= 640) {
+			if (disableLegendOnMobile && container?.style.width <= 640) {
 				main.querySelectorAll('.description').forEach(el => el.style.display = 'none');
+				container.style.height = mobileHeight + 15;
 			}
 		})
 
-		if (!window.ufrGlobals.isMobile) {
+		if (useThumbnails && !window.ufrGlobals.isMobile) {
 			const thumb = document.getElementById(`${sliderID}-thumbnail`);
 
 			const splideThumbnails = new Splide(thumb, {
