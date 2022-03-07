@@ -12,7 +12,7 @@ export default function Render({preview, attributes}) {
 
 	return (
 		<div className="br-card w-100">
-			<div className="row heading py-3">
+			<div className="row heading py-1">
 				<div className="col" />
 
 				<div className="col title text-nowrap text-center font-weight-bold">
