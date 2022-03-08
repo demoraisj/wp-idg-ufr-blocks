@@ -25,8 +25,13 @@ $primary-lighter: #2670E8;
 				color: $primary-lighter;
 			}
 
-			h2 {
+			span.title {
 				color: $primary;
+				display: block;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 30px;
+				margin: 20px 0 0 0;
 			}
 
 			.description {

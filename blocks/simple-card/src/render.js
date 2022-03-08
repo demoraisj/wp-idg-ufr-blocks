@@ -27,7 +27,8 @@ export default function Render({ attributes }) {
 			<div className="content">
 				<div className="front">
 					<i className={`${icon} fa-3x`} />
-					<h2>{title}</h2>
+					<br/>
+					<span className="title">{title}</span>
 				</div>
 				<span className="description">
 					{description}
