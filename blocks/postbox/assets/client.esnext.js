@@ -127,6 +127,8 @@ async function ufrSetPostBox(params) {
 	boxTitle.innerHTML = (showTitle && title) ? title : '';
 	boxExcerpt.innerHTML = (showExcerpt && excerpt) ? strip(excerpt) : '';
 
+	boxContent.style.display = showTitle || showExcerpt ? '' : 'none';
+
 	/**
 	 * Padroniza os tamanhos dos boxes em relação a imagem de fundo.
 	 *
