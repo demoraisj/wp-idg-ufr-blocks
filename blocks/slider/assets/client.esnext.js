@@ -40,7 +40,7 @@ function ufrSetUpSliders(params) {
 		const mainSlider = document.getElementById(sliderID);
 		const thumbnailSlider = document.getElementById(`${sliderID}-thumbnail`);
 		const mainList = mainSlider.querySelector('.splide__list');
-		const thumbnailList = thumbnailSlider.querySelector('.splide__list');
+		const thumbnailList = thumbnailSlider?.querySelector('.splide__list');
 
 		const posts = await getPosts(postType, postCategory, postTag, postsQuantity, wpPostType);
 
@@ -108,7 +108,7 @@ function ufrSetUpSliders(params) {
 		const splideMain = new Splide(main, {
 			type: 'fade',
 			rewind: true,
-			pagination: false,
+			pagination: true,
 			arrows: true,
 			cover: true,
 			width,
