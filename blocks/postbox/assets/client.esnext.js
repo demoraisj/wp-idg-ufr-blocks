@@ -71,9 +71,11 @@ async function ufrSetPostBox(params) {
 	const boxTitle = box.querySelector('.title');
 	const boxExcerpt = box.querySelector('.excerpt');
 	const boxContent = box.querySelector('.content');
-	const boxShareFb = box.querySelector('.fa-facebook-f');
-	const boxShareTt = box.querySelector('.fa-twitter');
-	const boxShareWpp = box.querySelector('.fa-whatsapp');
+	const boxShareFb = box.querySelector('.social-links .facebook');
+	const boxShareTt = box.querySelector('.social-links .twitter');
+	const boxShareWpp = box.querySelector('.social-links .whatsapp');
+	const boxShareToggle = box.querySelector('.toggle-social-links');
+	const boxShareBtn = box.querySelector('.social-links');
 
 	let targetPost = post ?? (await getPosts(postType, postCategory, postTag, postSelection, wpPostType))[0];
 
@@ -142,12 +144,30 @@ async function ufrSetPostBox(params) {
 	boxContent.style.height = `${box.clientWidth - (showShareBtn ? 57 : 0)}px`;
 
 	if (showShareBtn) {
-		boxShareFb.onclick = () => window.open(shareLinks.facebook, '_blank');
-		boxShareTt.onclick = () => window.open(shareLinks.twitter, '_blank');
-		boxShareWpp.onclick = () => window.open(shareLinks.whatsapp, '_blank');
+		boxShareToggle.addEventListener('click', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
 
-		boxShareFb.onauxclick = () => window.open(shareLinks.facebook, '_blank');
-		boxShareTt.onauxclick = () => window.open(shareLinks.twitter, '_blank');
-		boxShareWpp.onauxclick = () => window.open(shareLinks.whatsapp, '_blank');
+			if (boxShareBtn.classList.contains('open')) {
+				boxShareBtn.classList.remove('open');
+			} else {
+				boxShareBtn.classList.add('open');
+			}
+		})
+
+		const shareFn = (e, link) => {
+			e.preventDefault();
+			e.stopPropagation();
+
+			window.open(link, '_blank')
+		}
+
+		boxShareFb.onclick = (e) => shareFn(e, shareLinks.facebook);
+		boxShareTt.onclick = (e) => shareFn(e, shareLinks.twitter);
+		boxShareWpp.onclick = (e) => shareFn(e, shareLinks.whatsapp);
+
+		boxShareFb.onauxclick = (e) => shareFn(e, shareLinks.facebook);
+		boxShareTt.onauxclick = (e) => shareFn(e, shareLinks.twitter);
+		boxShareWpp.onauxclick = (e) => shareFn(e, shareLinks.whatsapp);
 	}
 }
