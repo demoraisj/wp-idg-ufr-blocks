@@ -1,0 +1,58 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-topnews",
+	"version": "0.1.0",
+	"title": "UFR - Destaques",
+	"category": "widgets",
+	"icon": "welcome-widgets-menus",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-topnews",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"imgWidth": {
+			"type": "string",
+			"default": "368px"
+		},
+		"imgHeight": {
+			"type": "string",
+			"default": "272px"
+		},
+		"cols": {
+			"type": "string",
+			"default": "3"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"showShareBtn": {
+			"type": "boolean",
+			"default": true
+		},
+		"topnewsID": {
+			"type": "string"
+		},
+		"useCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"useImage": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}
