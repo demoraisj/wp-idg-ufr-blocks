@@ -1,7 +1,19 @@
 async function ufrSetTopNews(params) {
-	const { imgWidth, imgHeight, showTitle, showExcerpt, cols, showShareBtn, topnewsID, useCard, useImage } = params;
+	const {
+		imgWidth,
+		imgHeight,
+		showTitle,
+		showExcerpt,
+		cols,
+		showShareBtn,
+		topnewsID,
+		useCard,
+		useImage,
+		jumpPosts,
+		showCategory,
+	} = params;
 
-	const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/ufr/featured-news?quantity=${cols}`;
+	const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/ufr/featured-news?quantity=${cols}&jump=${jumpPosts}`;
 
 	const wrapper = document.getElementById(topnewsID);
 
@@ -14,6 +26,7 @@ async function ufrSetTopNews(params) {
 			theCol: box,
 
 			boxContent: box.querySelector('.content'),
+			boxCategory: box.querySelector('.category'),
 			boxTitle: box.querySelector('.title'),
 			boxExcerpt: box.querySelector('.excerpt'),
 
@@ -51,7 +64,9 @@ async function ufrSetTopNews(params) {
 		elements.forEach((col, idx) => {
 			let img = window.ufrGlobals.themeUrl + '/assets/img/logo/ufr-bg.png';
 
-			const { permalink, thumbnail, post_title, post_excerpt, post_date } = posts[idx];
+			const { permalink, thumbnail, post_title, post_excerpt, categories } = posts[idx];
+
+			const category = categories.length > 0 ? categories[0] : null;
 
 			if (thumbnail && typeof thumbnail === 'string' && thumbnail.length > 0) img = thumbnail;
 
@@ -68,7 +83,9 @@ async function ufrSetTopNews(params) {
 
 			col.boxTitle.innerHTML = (showTitle && post_title) ? post_title : '';
 			col.boxExcerpt.innerHTML = (showExcerpt && post_excerpt) ? strip(post_excerpt) : '';
+			col.boxCategory.innerHTML = (showCategory && category) ? category.name : '';
 
+			col.boxCategory.style.margin = !useImage ? '10px 0' : '';
 			col.boxContent.style.display = showTitle || showExcerpt ? '' : 'none';
 			col.boxContent.style.display = useCard ? '5px 10px' : '';
 
@@ -108,10 +125,11 @@ async function ufrSetTopNews(params) {
 				col.boxShareTt.onauxclick = (e) => shareFn(e, shareLinks.twitter);
 				col.boxShareWpp.onauxclick = (e) => shareFn(e, shareLinks.whatsapp);
 			}
+
 			col.theCol.classList.remove('hidden');
 		});
 
-		wrapper.nextElementSibling.remove();
+		if (wrapper.nextElementSibling) wrapper.nextElementSibling.classList.remove('loading');
 	} catch (e) {
 		console.error(e);
 	}

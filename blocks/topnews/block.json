@@ -53,6 +53,14 @@
 		"useImage": {
 			"type": "boolean",
 			"default": true
+		},
+		"jumpPosts": {
+			"type": "string",
+			"default": "0"
+		},
+		"showCategory": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

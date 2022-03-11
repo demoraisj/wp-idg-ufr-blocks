@@ -18,7 +18,20 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 	/**
 	 * Desestruturação dos atributos do bloco registrados em block.json -> "attributes"
 	 */
-	const { position, imgWidth, imgHeight, showTitle, showExcerpt, cols, showShareBtn, useCard, topnewsID, useImage } = attributes;
+	const {
+		position,
+		imgWidth,
+		imgHeight,
+		showTitle,
+		showExcerpt,
+		cols,
+		showShareBtn,
+		useCard,
+		topnewsID,
+		useImage,
+		jumpPosts,
+		showCategory,
+	} = attributes;
 
 	if (!topnewsID) setAttributes({ topnewsID: `topnews-${uuid()}` });
 
@@ -36,7 +49,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 	useEffect(() => {
 		if (!isSelected) {
 			// @see assets/client.esnext.js
-			window.ufrSetTopNews({
+			void window.ufrSetTopNews({
 				showShareBtn,
 				topnewsID,
 				showExcerpt,
@@ -46,6 +59,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				imgHeight,
 				useCard,
 				useImage,
+				jumpPosts,
+				showCategory,
 			});
 		}
 	})
@@ -92,6 +107,14 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							setter={setAttributes}
 						/>
 
+						<UFRInput
+							label="Pular posts"
+							type="number"
+							value={jumpPosts}
+							attr="jumpPosts"
+							setter={setAttributes}
+						/>
+
 						<UFRCheckbox
 							label="Mostrar botão de compartilhamento"
 							checked={showShareBtn}
@@ -110,6 +133,13 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							label="Mostrar resumo"
 							checked={showExcerpt}
 							attr="showExcerpt"
+							setter={setAttributes}
+						/>
+
+						<UFRCheckbox
+							label="Mostrar categoria"
+							checked={showCategory}
+							attr="showCategory"
 							setter={setAttributes}
 						/>
 

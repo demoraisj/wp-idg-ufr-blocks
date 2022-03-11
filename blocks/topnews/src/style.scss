@@ -97,8 +97,8 @@ $primary: #1351B4;
 		overflow: hidden;
 	}
 
-	.topnews.col {
-		margin: 0 10px;
+	.topnews {
+		margin: 10px;
 		cursor: pointer;
 	}
 
@@ -110,9 +110,19 @@ $primary: #1351B4;
 	.content {
 		padding: 5px 10px;
 
-		.title {
+		.category {
+			font-weight: 600;
 			font-size: 1rem;
-			font-weight: bold;
+			color: #555;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+
+		.title {
+			font-weight: 600;
+			font-size: 1.1rem;
+			color: #0c326f;
+			line-height: 1.4;
 		}
 
 		.excerpt {

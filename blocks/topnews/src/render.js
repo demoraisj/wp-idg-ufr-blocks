@@ -6,16 +6,28 @@
  * @return {JSX.Element} Renderização do bloco
  */
 export default function Render({attributes}) {
-	const { showShareBtn, topnewsID, showExcerpt, showTitle, cols, imgWidth, imgHeight, useCard, useImage } = attributes;
+	const {
+		showShareBtn,
+		topnewsID,
+		showExcerpt,
+		showTitle,
+		cols,
+		imgWidth,
+		imgHeight,
+		useCard,
+		useImage,
+		jumpPosts,
+		showCategory,
+	} = attributes;
 
 	let columns = [];
 
 	for (let i = 1; i < Number(cols) + 1; i++) {
 		columns.push(
 			<>
-				<div className={`col ${useCard ? 'br-card' : ''} topnews hidden top-news-number-${i}`}>
+				<div className={`col-sm-12 col-md-auto ${useCard ? 'br-card' : ''} topnews hidden top-news-number-${i}`}>
 					<div className="row">
-						<div className="col box-col">
+						<div className="col-12 box-col">
 							{useImage && <div className="img-container" />}
 
 							{showShareBtn &&
@@ -40,9 +52,10 @@ export default function Render({attributes}) {
 					</div>
 
 					<div className="row content">
-						<div className="col">
-							<p className="title"/>
-							<p className="excerpt"/>
+						<div className="col-12">
+							<p className="category" />
+							<p className="title" style={useImage ? {} : { width: '80%', textAlign: 'justify' }} />
+							<p className="excerpt" />
 						</div>
 					</div>
 				</div>
@@ -52,7 +65,7 @@ export default function Render({attributes}) {
 
 	return (
 		<>
-			<div className="row" id={topnewsID}>
+			<div className="row d-flex justify-content-center" id={topnewsID}>
 				{columns}
 
 				{/* @see assets/client.esnext.js */}
@@ -69,6 +82,8 @@ export default function Render({attributes}) {
 							imgHeight: '${imgHeight}',
 							useCard: ${useCard},
 							useImage: ${useImage},
+							jumpPosts: ${jumpPosts},
+							showCategory: ${showCategory},
 						})
 					});
 				`}
