@@ -1,0 +1,83 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-banner",
+	"version": "0.1.0",
+	"title": "UFR - Banner",
+	"category": "widgets",
+	"icon": "align-full-width",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-banner",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"backgroundImage": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"id": "",
+				"alt": ""
+			}
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"textPositionX": {
+			"type": "string",
+			"enum": ["left", "right", "center"],
+			"default": "center"
+		},
+		"textPositionY": {
+			"type": "string",
+			"enum": ["top", "bottom", "middle"],
+			"default": "middle"
+		},
+		"textColor": {
+			"type": "string",
+			"default": ""
+		},
+		"textSize": {
+			"type": "string",
+			"default": "2.8"
+		},
+		"width": {
+			"type": "string",
+			"default": "1150"
+		},
+		"height": {
+			"type": "string",
+			"default": "160"
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontVariant": {
+			"type": "string"
+		},
+		"fontUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"useCard": {
+			"type": "boolean",
+			"default": false
+		},
+		"padding": {
+			"type": "string",
+			"default": "10px 10px 10px 10px"
+		},
+		"link": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

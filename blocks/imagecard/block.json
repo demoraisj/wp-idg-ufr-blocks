@@ -1,0 +1,47 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/ufr-imagecard",
+	"version": "0.1.0",
+	"title": "UFR - Cartão com Imagem",
+	"category": "widgets",
+	"icon": "format-image",
+	"description": "Componente do DSGOV para o tema WP da Universidade Federal de Rondonópolis.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-idg-ufr__block-imagecard",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+  	"attributes": {
+		"position": {
+			"type": "string",
+			"enum": ["start", "center", "end"],
+			"default": "center"
+		},
+		"height": {
+			"type": "string",
+			"default": "270px"
+		},
+		"img": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"id": "",
+				"alt": ""
+			}
+		},
+		"link": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"fontColor": {
+			"type": "string",
+			"default": "#FFFFFF"
+		}
+	}
+}

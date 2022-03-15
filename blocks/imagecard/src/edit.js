@@ -1,9 +1,7 @@
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { UFRBlockHeader, UFRSelect, UFRInput, UFRCheckbox } from 'wp-idg-ufr__block-components';
-import { useEffect } from '@wordpress/element';
+import { UFRBlockHeader, UFRSelect, UFRInput, UFRGaleryBtn } from '../../components/dist/index.modern';
 import { Fragment } from 'react';
 import Render from "./render";
-import {v1 as uuid} from "uuid";
 import './editor.scss';
 
 /**
@@ -18,22 +16,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 	/**
 	 * Desestruturação dos atributos do bloco registrados em block.json -> "attributes"
 	 */
-	const {
-		position,
-		imgWidth,
-		imgHeight,
-		showTitle,
-		showExcerpt,
-		cols,
-		showShareBtn,
-		useCard,
-		topnewsID,
-		useImage,
-		jumpPosts,
-		showCategory,
-	} = attributes;
-
-	if (!topnewsID) setAttributes({ topnewsID: `topnews-${uuid()}` });
+	const { position, img, height, text, fontColor, link } = attributes;
 
 	/**
 	 * Opções para configuração de posição do botão
@@ -45,25 +28,6 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		{ label: 'Centro', value: 'center' },
 		{ label: 'Direita', value: 'end' },
 	];
-
-	useEffect(() => {
-		if (!isSelected) {
-			// @see assets/client.esnext.js
-			void window.ufrSetTopNews({
-				showShareBtn,
-				topnewsID,
-				showExcerpt,
-				showTitle,
-				cols,
-				imgWidth,
-				imgHeight,
-				useCard,
-				useImage,
-				jumpPosts,
-				showCategory,
-			});
-		}
-	})
 
 	/**
 	 * Renderiza o conteúdo. Esconde as configurações do bloco quando ele não está selecionado.
@@ -82,78 +46,44 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				<div className="row align-items-center">
 					<div className="col config">
 						<UFRBlockHeader
-							title="Destaques"
+							title="Cartão com Imagem"
 						/>
 
-						<UFRInput
-							label="Largura da Imagem de Destaque"
-							value={imgWidth}
-							attr="imgWidth"
+						<UFRGaleryBtn
+							text="Selecionar Imagem de Fundo"
+							icon="fa fa-picture-o"
+							allowedTypes={['image']}
+							value={img}
+							attr="img"
 							setter={setAttributes}
 						/>
 
 						<UFRInput
-							label="Altura da Imagem de Destaque"
-							value={imgHeight}
-							attr="imgHeight"
+							label="Texto"
+							value={text}
+							attr="text"
 							setter={setAttributes}
 						/>
 
 						<UFRInput
-							label="Colunas (quantidade de destaques)"
-							type="number"
-							value={cols}
-							attr="cols"
+							label="Link"
+							value={link}
+							attr="link"
 							setter={setAttributes}
 						/>
 
 						<UFRInput
-							label="Pular posts"
-							type="number"
-							value={jumpPosts}
-							attr="jumpPosts"
+							label="Altura do Cartão"
+							value={height}
+							attr="height"
 							setter={setAttributes}
 						/>
 
-						<UFRCheckbox
-							label="Mostrar botão de compartilhamento"
-							checked={showShareBtn}
-							attr="showShareBtn"
-							setter={setAttributes}
-						/>
-
-						<UFRCheckbox
-							label="Mostrar título"
-							checked={showTitle}
-							attr="showTitle"
-							setter={setAttributes}
-						/>
-
-						<UFRCheckbox
-							label="Mostrar resumo"
-							checked={showExcerpt}
-							attr="showExcerpt"
-							setter={setAttributes}
-						/>
-
-						<UFRCheckbox
-							label="Mostrar categoria"
-							checked={showCategory}
-							attr="showCategory"
-							setter={setAttributes}
-						/>
-
-						<UFRCheckbox
-							label="Mostrar Imagem"
-							checked={useImage}
-							attr="useImage"
-							setter={setAttributes}
-						/>
-
-						<UFRCheckbox
-							label="Usar Cartão"
-							checked={useCard}
-							attr="useCard"
+						<UFRInput
+							label="Texto"
+							type="color"
+							value={fontColor}
+							attr="fontColor"
 							setter={setAttributes}
 						/>
 					</div>
@@ -167,9 +97,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				})}
 			>
 				<div className="row">
-					<div
-						className={`col-12 d-flex justify-content-${position}`}
-					>
+					<div className="col">
 						<Render attributes={attributes} />
 					</div>
 				</div>
@@ -183,7 +111,7 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				<div id="ufrControls">
 					<fieldset>
 						<UFRSelect
-							label="Posição Horizontal do Destaques"
+							label="Posição Horizontal do Cartão com Imagem"
 							options={positioningOptions}
 							value={position}
 							attr="position"

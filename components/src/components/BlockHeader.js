@@ -67,7 +67,7 @@ l-158 -4 0 162 0 162 168 -4 c139 -2 173 -6 205 -22z'
           </g>
         </svg>
 
-        <h1 className='title'>{title}</h1>
+        <h3 className='title'>{title}</h3>
       </div>
 
       <span className='description'>{description}</span>
