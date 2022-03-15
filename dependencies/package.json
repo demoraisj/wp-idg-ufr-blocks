@@ -4,14 +4,15 @@
   "description": "Dependências dos componentes do tema WP da Universidade Federal de Rondonópolis.",
   "main": "index.js",
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "sass": "^1.43.2"
+    "@babel/core": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "sass": "^1.49.9",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   },
   "scripts": {
-    "watch": "./node_modules/sass/sass.js --watch ./assets/css/ufr-blocks-editor.scss ./assets/css/ufr-blocks-editor.css & babel src --watch -d lib",
-    "build": "./node_modules/sass/sass.js ./assets/css/ufr-blocks-editor.scss ./assets/css/ufr-blocks-editor.css & babel src -d lib",
+    "build": "./node_modules/sass/sass.js ./assets/css/ufr-blocks-editor.scss ./assets/css/ufr-blocks-editor.css & npx webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

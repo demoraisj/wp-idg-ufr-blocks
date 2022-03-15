@@ -18,9 +18,8 @@ rm $composedname.zip
 npm run build &&
 
 mkdir -p $composedname/node_modules/regenerator-runtime &&
-cp -r ./lib ./$composedname &&
+cp -r ./dist ./$composedname &&
 cp -r ./assets ./$composedname &&
-cp ./index.js ./$composedname &&
 cp ./node_modules/regenerator-runtime/runtime.js ./$composedname/node_modules/regenerator-runtime/runtime.js &&
 cp ./$composedname.php ./$composedname &&
 

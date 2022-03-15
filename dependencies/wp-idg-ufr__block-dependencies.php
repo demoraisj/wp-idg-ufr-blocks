@@ -47,7 +47,7 @@ function initialize() {
 
     function block_assets() {
         wp_enqueue_script('regenerator-runtime.js', uri('/node_modules/regenerator-runtime/runtime.js'), NULL, '1.0', true);
-        wp_enqueue_script('ufr-idg-blocks-dependencies.js', uri('/index.js'), NULL, '1.0', true);
+        wp_enqueue_script('ufr-idg-blocks-dependencies.js', uri('/dist/ufr-idg-blocks-dependencies.js'), NULL, '1.0', true);
     }
 
     // Carrega scripts apenas no editor de blocos
