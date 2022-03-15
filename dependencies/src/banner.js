@@ -1,5 +1,5 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.container');
+function setBannerSizeAndVisibility() {
+    const container = document.querySelector('.container') ?? document.querySelector('.editor-styles-wrapper');
     const banners = document.querySelectorAll('.banner-container');
 
     banners.forEach((banner) => {
@@ -13,11 +13,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
             banner.style.width = `${containerWidth - 20}px`;
             banner.style.height = `${newHeight}px`;
+            banner.style.maxHeight = `${newHeight}px`;
         } else {
-            banner.style.width = `${originalHeight}px`;
             banner.style.width = `${originalWidth}px`;
+            banner.style.height = `${originalHeight}px`;
+            banner.style.maxHeight = `${originalHeight}px`;
         }
 
         banner.style.display = 'flex';
-    })
-})
+    });
+}
+
+window.setBannerSizeAndVisibility = setBannerSizeAndVisibility;
+window.addEventListener('DOMContentLoaded', setBannerSizeAndVisibility);

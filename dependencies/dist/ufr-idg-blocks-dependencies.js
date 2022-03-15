@@ -4,7 +4,7 @@
 /* 1 */
 /***/ (() => {
 
-window.addEventListener("DOMContendLoaded",function(){var a=document.querySelector(".container"),b=document.querySelectorAll(".banner-container");b.forEach(function(b){var c=a.clientWidth,d=b.getAttribute("data-width"),e=b.getAttribute("data-height");if(d>c){b.style.width="".concat(c-20,"px"),b.style.height="".concat(e*(100*c/d)/100,"px")}else b.style.width="".concat(e,"px"),b.style.width="".concat(d,"px");b.style.display="flex"})});
+function setBannerSizeAndVisibility(){var a,b=null!==(a=document.querySelector(".container"))&&void 0!==a?a:document.querySelector(".editor-styles-wrapper"),c=document.querySelectorAll(".banner-container");c.forEach(function(a){var c=b.clientWidth,d=a.getAttribute("data-width"),e=a.getAttribute("data-height");if(d>c){var f=e*(100*c/d)/100;a.style.width="".concat(c-20,"px"),a.style.height="".concat(f,"px"),a.style.maxHeight="".concat(f,"px")}else a.style.width="".concat(d,"px"),a.style.height="".concat(e,"px"),a.style.maxHeight="".concat(e,"px");a.style.display="flex"})}window.setBannerSizeAndVisibility=setBannerSizeAndVisibility,window.addEventListener("DOMContentLoaded",setBannerSizeAndVisibility);
 
 /***/ }),
 /* 2 */
