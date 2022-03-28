@@ -13,7 +13,7 @@
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
-  	"attributes": {
+	"attributes": {
 		"position": {
 			"type": "string",
 			"enum": ["start", "center", "end"],
@@ -61,6 +61,15 @@
 		"showCategory": {
 			"type": "boolean",
 			"default": true
+		},
+		"roundImageBorder": {
+			"type": "boolean",
+			"default": false
+		},
+		"shareBtnColor": {
+			"type": "string",
+			"enum": ["blue", "white", "gray"],
+			"default": "blue"
 		}
 	}
 }

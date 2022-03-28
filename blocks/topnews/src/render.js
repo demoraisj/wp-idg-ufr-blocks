@@ -18,9 +18,35 @@ export default function Render({attributes}) {
 		useImage,
 		jumpPosts,
 		showCategory,
+		shareBtnColor,
+		roundImageBorder,
 	} = attributes;
 
 	let columns = [];
+	let shareBtnStyle = {};
+
+	switch (shareBtnColor) {
+		case 'blue':
+			shareBtnStyle = {
+				background: '#1351B4',
+				color: '#fff',
+			};
+			break;
+
+		case 'white':
+			shareBtnStyle = {
+				background: '',
+				color: '#fff',
+			};
+			break;
+
+		case 'gray':
+			shareBtnStyle = {
+				background: '',
+				color: '#646464',
+			};
+			break;
+	}
 
 	for (let i = 1; i < Number(cols) + 1; i++) {
 		columns.push(
@@ -31,20 +57,20 @@ export default function Render({attributes}) {
 							{useImage && <div className="img-container" />}
 
 							{showShareBtn &&
-								<div className="social-links">
+								<div className={`social-links ${shareBtnColor}`}>
 									<a className="option facebook" title="Facebook">
-										<span className="fab fa-facebook-f"/>
+										<span className="fab fa-facebook-f" />
 									</a>
 									<a className="option twitter" title="Twitter">
-										<span className="fab fa-twitter"/>
+										<span className="fab fa-twitter" />
 									</a>
 									<a className="option whatsapp" title="Whatsapp">
-										<span className="fab fa-whatsapp"/>
+										<span className="fab fa-whatsapp" />
 									</a>
 
-									<a href="#" className="toggle-social-links">
+									<a href="#" className="toggle-social-links" style={shareBtnStyle}>
 										<span className="fas fa-share-alt"/>
-										<span className="fas fa-times"/>
+										<span className="fas fa-times" style={{ color: shareBtnStyle.color }}/>
 									</a>
 								</div>
 							}
@@ -84,6 +110,8 @@ export default function Render({attributes}) {
 							useImage: ${useImage},
 							jumpPosts: ${jumpPosts},
 							showCategory: ${showCategory},
+							roundImageBorder: ${roundImageBorder},
+							shareBtnColor: '${shareBtnColor}',
 						})
 					});
 				`}

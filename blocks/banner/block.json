@@ -47,7 +47,7 @@
 		},
 		"textSize": {
 			"type": "string",
-			"default": "2.8"
+			"default": "25px"
 		},
 		"width": {
 			"type": "string",

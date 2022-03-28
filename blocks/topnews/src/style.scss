@@ -33,8 +33,6 @@ $primary: #1351B4;
 		}
 
 		.toggle-social-links {
-			color: white;
-			background: #1351B4;
 			opacity: 1;
 			display: block;
 			position: absolute;
@@ -58,7 +56,6 @@ $primary: #1351B4;
 		}
 
 		&.open {
-			outline: #1351B4 2px solid;
 			background: #fff;
 			max-width: 320px;
 			padding-left: 8px;
@@ -85,6 +82,18 @@ $primary: #1351B4;
 			}
 		}
 
+		&.blue.open {
+			outline: #1351B4 2px solid;
+		}
+
+		&.white.open {
+			outline: #fff 2px solid;
+		}
+
+		&.gray.open {
+			outline: #646464 2px solid;
+		}
+
 		a:not(:disabled):hover {
 			background-image: unset !important;
 		}
@@ -105,7 +114,6 @@ $primary: #1351B4;
 	img {
 		width: 100%;
 		height: 100%;
-		border-radius: 10px;
 	}
 
 	.content {

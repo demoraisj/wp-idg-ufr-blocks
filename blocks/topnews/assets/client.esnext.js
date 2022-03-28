@@ -11,6 +11,8 @@ async function ufrSetTopNews(params) {
 		useImage,
 		jumpPosts,
 		showCategory,
+		roundImageBorder,
+		shareBtnColor,
 	} = params;
 
 	const postsUrl = window.ufrGlobals.siteUrl + `/wp-json/ufr/featured-news?quantity=${cols}&jump=${jumpPosts}`;
@@ -74,14 +76,35 @@ async function ufrSetTopNews(params) {
 			col.theCol.onauxclick = () => window.open(permalink, '_blank');
 
 			if (useImage) {
-				col.boxImgContainer.innerHTML = `<img src="${img}" alt="${post_title}" />`;
+				const imgStyle = `${roundImageBorder ? 'border-radius: 10px;' : ''}`
+
+				col.boxImgContainer.innerHTML = `<img src="${img}" alt="${post_title}" style="${imgStyle}" />`;
 
 				col.boxImgContainer.style.width = imgWidth;
 				col.boxImgContainer.style.height = imgHeight;
 				col.boxImgContainer.style.padding = useCard ? '10px' : '';
 			}
 
-			col.boxTitle.innerHTML = (showTitle && post_title) ? post_title : '';
+			let treatedTitle = post_title;
+
+			if (treatedTitle.length > 50) {
+				let sumOfChars = 0;
+				let idxOfBeginningLastWord = -1;
+
+				treatedTitle = treatedTitle.split(' ');
+
+				treatedTitle.forEach((word, idx) => {
+					sumOfChars += word.length;
+
+					if (sumOfChars >= 50 && idxOfBeginningLastWord === -1) {
+						idxOfBeginningLastWord = idx;
+					}
+				});
+
+				treatedTitle = treatedTitle.slice(0, idxOfBeginningLastWord).join(' ') + ' (...) ';
+			}
+
+			col.boxTitle.innerHTML = (showTitle && post_title) ? treatedTitle : '';
 			col.boxExcerpt.innerHTML = (showExcerpt && post_excerpt) ? strip(post_excerpt) : '';
 			col.boxCategory.innerHTML = (showCategory && category) ? category.name : '';
 

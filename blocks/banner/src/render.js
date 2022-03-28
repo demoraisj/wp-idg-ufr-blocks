@@ -71,7 +71,7 @@ export default function Render({ attributes }) {
 		text: {
 			color: textColor,
 			fontFamily: font,
-			fontSize: `${textSize}vw`,
+			fontSize: textSize,
 		},
 	}
 

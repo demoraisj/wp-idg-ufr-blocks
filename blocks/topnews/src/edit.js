@@ -31,6 +31,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		useImage,
 		jumpPosts,
 		showCategory,
+		roundImageBorder,
+		shareBtnColor,
 	} = attributes;
 
 	if (!topnewsID) setAttributes({ topnewsID: `topnews-${uuid()}` });
@@ -44,6 +46,12 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 		{ label: 'Esquerda', value: 'start' },
 		{ label: 'Centro', value: 'center' },
 		{ label: 'Direita', value: 'end' },
+	];
+
+	const shareBtnColorOptions = [
+		{ label: 'Azul', value: 'blue' },
+		{ label: 'Transparente Branco', value: 'white' },
+		{ label: 'Transparente Cinza', value: 'gray' },
 	];
 
 	useEffect(() => {
@@ -61,6 +69,8 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 				useImage,
 				jumpPosts,
 				showCategory,
+				roundImageBorder,
+				shareBtnColor,
 			});
 		}
 	})
@@ -115,6 +125,14 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							setter={setAttributes}
 						/>
 
+						<UFRSelect
+							label="Cor do botão de compartilhar"
+							options={shareBtnColorOptions}
+							value={shareBtnColor}
+							attr="shareBtnColor"
+							setter={setAttributes}
+						/>
+
 						<UFRCheckbox
 							label="Mostrar botão de compartilhamento"
 							checked={showShareBtn}
@@ -147,6 +165,13 @@ export default function edit({ attributes, setAttributes, isSelected }) {
 							label="Mostrar Imagem"
 							checked={useImage}
 							attr="useImage"
+							setter={setAttributes}
+						/>
+
+						<UFRCheckbox
+							label="Arredondar bordas da imagem"
+							checked={roundImageBorder}
+							attr="roundImageBorder"
 							setter={setAttributes}
 						/>
 
