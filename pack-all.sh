@@ -74,9 +74,8 @@ done &&
   cd ../dependencies &&
 
   function copy_files() {
-      cp -r ./lib ./$composedname 2>/dev/null
       cp -r ./assets ./$composedname 2>/dev/null
-      cp ./index.js ./$composedname 2>/dev/null
+      cp -r ./dist ./$composedname 2>/dev/null
       cp ./node_modules/regenerator-runtime/runtime.js ./$composedname/node_modules/regenerator-runtime/runtime.js 2>/dev/null
       cp ./$composedname.php ./$composedname 2>/dev/null
   }
