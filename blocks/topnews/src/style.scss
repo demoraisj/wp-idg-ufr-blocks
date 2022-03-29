@@ -4,7 +4,6 @@ $shareBtnWidth: 100px;
 $shareBtnHeight: 30px;
 $primary: #1351B4;
 
-
 .wp-block-create-block-ufr-topnews {
 	.social-links {
 		white-space: nowrap;
@@ -22,6 +21,7 @@ $primary: #1351B4;
 		z-index: 10;
 		text-align: center;
 		padding-right: 32px;
+		background: #fff;
 
 		@media only screen and (max-width: 1264px) {
 			top: 25px;
@@ -51,10 +51,11 @@ $primary: #1351B4;
 		}
 
 		&:hover {
-			outline: white 2px solid;
+			outline: white 2px solid !important;
 		}
 
 		&.open {
+			border: none !important;
 			background: #fff;
 			max-width: 320px;
 			padding-left: 8px;
@@ -82,16 +83,26 @@ $primary: #1351B4;
 			}
 		}
 
-		&.blue.open {
-			outline: #1351B4 2px solid;
+		&.blue {
+			outline: white 1px solid;
 		}
 
-		&.white.open {
-			outline: #fff 2px solid;
+		&.white {
+
+			&.open {
+				outline: #fff 2px solid;
+			}
 		}
 
-		&.gray.open {
-			outline: #646464 2px solid;
+		&.gray {
+
+			&.open {
+				outline: #646464 2px solid;
+
+				&:hover {
+					outline: #646464 2px solid !important;
+				}
+			}
 		}
 
 		a:not(:disabled):hover {
