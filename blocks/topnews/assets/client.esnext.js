@@ -87,7 +87,7 @@ async function ufrSetTopNews(params) {
 
 			let treatedTitle = post_title;
 
-			if (treatedTitle.length > 50) {
+			if (treatedTitle.length > 110) {
 				let sumOfChars = 0;
 				let idxOfBeginningLastWord = -1;
 
@@ -96,7 +96,7 @@ async function ufrSetTopNews(params) {
 				treatedTitle.forEach((word, idx) => {
 					sumOfChars += word.length;
 
-					if (sumOfChars >= 50 && idxOfBeginningLastWord === -1) {
+					if (sumOfChars >= 110 && idxOfBeginningLastWord === -1) {
 						idxOfBeginningLastWord = idx;
 					}
 				});
