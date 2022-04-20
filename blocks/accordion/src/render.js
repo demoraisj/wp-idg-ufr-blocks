@@ -21,6 +21,7 @@ export default function Render({ attributes }) {
 							<span className="title">{text}</span>
 						</button>
 					</div>
+
 					<div className="content">
 						{link && (
 							<div className="img">
@@ -30,13 +31,11 @@ export default function Render({ attributes }) {
 
 						{children.map((child) => (
 							<div className="child">
-								{child.link && (
-									<div className="img">
-										<img src={child.link} alt="" />
-									</div>
+								{child.link ? (
+									<a href={child.link}>{child.text}</a>
+								) : (
+									<p>{child.text}</p>
 								)}
-
-								<p>{child.text}</p>
 							</div>
 						))}
 					</div>
