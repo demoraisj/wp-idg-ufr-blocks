@@ -148,7 +148,7 @@ async function ufrSetUpPostLists(params) {
 											</span>
 										</div>
 
-										${window.ufrGlobals.isMobile ? '' : shareBtn}
+										${window.isMobile ? '' : shareBtn}
 									</div>
 								</div>
 

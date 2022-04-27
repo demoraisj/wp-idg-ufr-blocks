@@ -89,7 +89,7 @@ function ufrSetUpSliders(params) {
 				</li>
 			`;
 
-			if (useThumbnails && !window.ufrGlobals.isMobile) {
+			if (useThumbnails && !window.isMobile) {
 				thumbnailList.innerHTML += `
 					<li class="splide__slide">
 						<img src="${img}" alt="${imgAlt}" />
@@ -138,7 +138,7 @@ function ufrSetUpSliders(params) {
 			}
 		})
 
-		if (useThumbnails && !window.ufrGlobals.isMobile) {
+		if (useThumbnails && !window.isMobile) {
 			const thumb = document.getElementById(`${sliderID}-thumbnail`);
 
 			const splideThumbnails = new Splide(thumb, {

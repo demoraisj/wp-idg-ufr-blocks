@@ -55,7 +55,7 @@ async function ufrSetNewsPanel(params) {
 
 			return;
 		}
-		if (window.ufrGlobals.isMobile) {
+		if (window.isMobile) {
 			panelBox.style.width = '90vw';
 			panelBox.style.height =
 				((panelBox.clientWidth * 60.9) / 100).toString() + 'px';
@@ -218,7 +218,7 @@ async function ufrSetNewsPanel(params) {
 											</span>
 										</div>
 
-										${window.ufrGlobals.isMobile ? '' : shareBtn}
+										${window.isMobile ? '' : shareBtn}
 									</div>
 								</div>
 
