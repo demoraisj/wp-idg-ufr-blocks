@@ -25,7 +25,7 @@ export default function Render({ attributes }) {
 					<div className="content">
 						{link && (
 							<div className="img">
-								<img src={link} alt="" />
+								<img src={link} alt={text} />
 							</div>
 						)}
 

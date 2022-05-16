@@ -29,7 +29,7 @@ export default function Render({ attributes }) {
 				<p style={style.txt}>{text}</p>
 			</a>
 			<a href={link} target="_blank" rel="noopener">
-				<img src={img?.url} alt={img?.caption} style={style.img} />
+				<img src={img?.url} alt={img?.alt_text} style={style.img} />
 			</a>
 		</div>
 	);

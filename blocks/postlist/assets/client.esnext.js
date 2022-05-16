@@ -83,7 +83,7 @@ async function ufrSetUpPostLists(params) {
 
 		const renderedThumbnail = showThumbnail ? `
 			<div class="col-2 thumbnail">
-				<img src="${img}" alt="">
+				<img src="${img}" alt="${title}">
 			</div>
 		` : '';
 

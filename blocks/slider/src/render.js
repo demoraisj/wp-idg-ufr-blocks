@@ -43,7 +43,7 @@ export default function Render({ preview, attributes }) {
 
 			return (
 				<li className="splide__slide" data-splide-interval={duration * 1000}>
-					<img src={url} alt={alt ?? ''} />
+					<img src={url} alt={alt ?? caption ?? ''} />
 
 					{useLegend &&
 						<div className="description">
