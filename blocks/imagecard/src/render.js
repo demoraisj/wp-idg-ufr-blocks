@@ -28,8 +28,13 @@ export default function Render({ attributes }) {
 			<a href={link}  target="_blank" rel="noopener">
 				<p style={style.txt}>{text}</p>
 			</a>
+
 			<a href={link} target="_blank" rel="noopener">
-				<img src={img?.url} alt={img?.alt_text} style={style.img} />
+				<img
+					src={img?.url}
+					alt={img?.alt ?? img?.caption ?? img?.description ?? img?.title ?? img?.name ?? 'Imagem do Bloco'}
+					style={style.img}
+				/>
 			</a>
 		</div>
 	);
